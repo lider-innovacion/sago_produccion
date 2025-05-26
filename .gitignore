@@ -5,7 +5,6 @@
 
 # Archivos de Composer
 
-/systemfiles/
 /vendor/
 composer.lock
 
@@ -19,3 +18,13 @@ __pycache__/
 
 # Otros
 .env
+# Ignora TODO en systemfiles
+systemfiles/**
+
+# EXCEPCIÓN: mantener archivos y carpetas en filesformat/
+!systemfiles/filesformat/
+!systemfiles/filesformat/**
+
+# EXCEPCIÓN: mantener solo carpetas (no archivos) en filesproject/
+!systemfiles/filesproject/
+!systemfiles/filesproject/**/
