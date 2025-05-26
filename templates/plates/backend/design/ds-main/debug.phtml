@@ -1,0 +1,5 @@
+<?php if (DEBUG) {
+	Kint::$theme = 'aante-light';
+	$startime = explode(" ",microtime());
+	$startime = $startime[0] + $startime[1];
+} !DEBUG ?: new Debug($startime); ?>

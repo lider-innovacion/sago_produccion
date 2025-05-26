@@ -1,0 +1,87 @@
+-------------------------------------------------------------------------
+
+DELETE FROM `bd_migration`.`azp_gsc_capture`;
+ALTER TABLE `bd_migration`.`azp_gsc_capture` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_gsc_consignment`;
+ALTER TABLE `bd_migration`.`azp_gsc_consignment` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_gsc_generated_files`;
+ALTER TABLE `bd_migration`.`azp_gsc_generated_files` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_gsc_import`;
+ALTER TABLE `bd_migration`.`azp_gsc_import` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_gsc_request`;
+ALTER TABLE `bd_migration`.`azp_gsc_request` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_gsc_update`;
+ALTER TABLE `bd_migration`.`azp_gsc_update` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_gsc_logs_request`;
+ALTER TABLE `bd_migration`.`azp_gsc_logs_request` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_gsc_follow_email`;
+ALTER TABLE `bd_migration`.`azp_gsc_follow_email` AUTO_INCREMENT = 1;
+
+-------------------------------------------------------------------------
+
+DELETE FROM `bd_migration`.`azp_crt_capture`;
+ALTER TABLE `bd_migration`.`azp_crt_capture` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_request_data`;
+ALTER TABLE `bd_migration`.`azp_crt_request_data` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_request_import`;
+ALTER TABLE `bd_migration`.`azp_crt_request_import` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_request_update`;
+ALTER TABLE `bd_migration`.`azp_crt_request_update` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_observation_internal`;
+ALTER TABLE `bd_migration`.`azp_crt_observation_internal` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_generated_files`;
+ALTER TABLE `bd_migration`.`azp_crt_generated_files` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_client`;
+ALTER TABLE `bd_migration`.`azp_crt_client` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_bank`;
+ALTER TABLE `bd_migration`.`azp_crt_bank` AUTO_INCREMENT = 1;
+
+
+
+
+
+DELETE FROM `bd_migration`.`azp_crt_email_copy`;
+ALTER TABLE `bd_migration`.`azp_crt_email_copy` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_copy_client`;
+ALTER TABLE `bd_migration`.`azp_crt_copy_client` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_third_parties`;
+ALTER TABLE `bd_migration`.`azp_crt_third_parties` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_crt_alert`;
+ALTER TABLE `bd_migration`.`azp_crt_alert` AUTO_INCREMENT = 1;
+
+-------------------------------------------------------------------------
+
+DELETE FROM `bd_migration`.`azp_user` WHERE id_azp_user >= 1;
+ALTER TABLE `bd_migration`.`azp_user` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_data_personal` WHERE id_azp_data_personal >= 1;
+ALTER TABLE `bd_migration`.`azp_data_personal` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_social_media` WHERE id_azp_social_media >= 1;
+ALTER TABLE `bd_migration`.`azp_social_media` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_configuration_design` WHERE id_azp_configuration_design >= 1;
+ALTER TABLE `bd_migration`.`azp_configuration_design` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_configuration_modal` WHERE id_azp_configuration_modal >= 1;
+ALTER TABLE `bd_migration`.`azp_configuration_modal` AUTO_INCREMENT = 1;
+
+DELETE FROM `bd_migration`.`azp_configuration_panel` WHERE id_azp_configuration_panel >= 1;
+ALTER TABLE `bd_migration`.`azp_configuration_panel` AUTO_INCREMENT = 1;

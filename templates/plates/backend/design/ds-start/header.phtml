@@ -1,0 +1,79 @@
+<header class="page-header" role="banner">
+	<div class="page-logo">
+		<a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative"
+		data-toggle="modal" data-target="#modal-shortcut">
+			<img src="views/templates/smart/dist/img/logo.png" alt="<?= APP; ?>" aria-roledescription="logo">
+			<span class="page-logo-text mr-1"><?= APP; ?></span>
+			<span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
+			<i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+		</a>
+	</div>
+	<div class="hidden-md-down dropdown-icon-menu position-relative">
+		<a href="#" class="header-btn btn js-waves-off" data-action="toggle" data-class="nav-function-hidden" title="Ocultar Navegacion">
+			<i class="ni ni-menu"></i>
+		</a>
+		<ul>
+			<li>
+				<a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-minify" title="Minimizar Navegacion">
+					<i class="ni ni-minify-nav"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-fixed" title="Bloquear Navegacion">
+					<i class="ni ni-lock-nav"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="hidden-lg-up">
+		<a href="#" class="header-btn btn press-scale-down" data-action="toggle" data-class="mobile-nav-on">
+			<i class="ni ni-menu"></i>
+		</a>
+	</div>
+	<!--<div class="search">
+		<form class="app-forms hidden-xs-down" role="search" action="page_search.html" autocomplete="off">
+			<input type="text" id="search-field" placeholder="Buscar Resultados" class="form-control" tabindex="1">
+			<a href="#" onclick="return false;" class="btn-danger btn-search-close js-waves-off d-none" data-action="toggle" data-class="mobile-search-on">
+				<i class="fal fa-times"></i>
+			</a>
+		</form>
+	</div>-->
+	<div class="ml-auto d-flex">
+		<!--<div class="hidden-sm-up">
+			<a href="#" class="header-icon" data-action="toggle" data-class="mobile-search-on" data-focus="search-field" title="Buscar Resultados">
+				<i class="fal fa-search"></i>
+			</a>
+		</div>-->
+		<div class="">
+			<a href="dashboard/" class="header-icon" title="Inicio">
+				<i class="fal fa-home"></i>
+			</a>
+		</div>
+		<div class="">
+			<a href="#" class="header-icon" data-toggle="modal" data-target=".modal-setting" title="Configuraciones">
+				<i class="fal fa-cog"></i>
+			</a>
+		</div>
+		<!--<div class="">
+			<a href="#" class="header-icon" data-toggle="modal" data-target=".modal-application" title="Aplicaciones">
+				<i class="fal fa-cube"></i>
+			</a>
+		</div>-->
+		<!--<div class="">
+			<a href="#" class="header-icon" data-toggle="modal" data-target=".modal-messenger" title="Mensajes">
+				<i class="fal fa-user-md-chat"></i>
+			</a>
+		</div>-->
+		<!--<div class="">
+			<a href="#" class="header-icon" data-toggle="modal" data-target=".modal-notification" title="Notificaciones">
+				<i class="fal fa-bell"></i>
+			</a>
+		</div>-->
+		<div class="">
+			<a href="#" class="header-icon d-flex align-items-center justify-content-center ml-2" data-toggle="modal" data-target=".modal-profile" title="Opciones">
+				<!--<img src="views/templates/smart/dist/img/demo/avatars/avatar-admin.png" class="profile-image rounded-circle">-->
+				<img src="views/backend/images/profile-user.png" class="profile-image rounded-circle">
+			</a>
+		</div>
+	</div>
+</header>

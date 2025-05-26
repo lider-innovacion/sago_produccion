@@ -1,0 +1,68 @@
+<?= $this->insert('frontend/design/file-start'); ?>
+	<main>
+		<div class="album py-5 bg-light">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+								<img src="views/frontend/images/fondo.jpg" class="img-fluid">
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+						<div class="col">
+							<div class="card shadow-sm">
+								<div class="card-body">
+									<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="zz_recover_form">
+										<div class="row">
+											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+												<div class="form-group">
+													<div class="alert hide" id="ajax_zz_recover"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+												<div class="form-group">
+													<label for="field_email" class="form-label">
+														<span>Correo Electronico</span>
+													</label>
+													<div class="input-group input-group-sm">
+														<input type="email" name="field_email" id="field_email" class="form-control" placeholder="Digita el texto ..." required="" />
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+												<div class="form-group">
+													<label for="field_login" class="form-label">
+														<span>Usuario</span>
+													</label>
+													<div class="input-group input-group-sm">
+														<input type="text" name="field_login" id="field_login" class="form-control" placeholder="Digita el texto ..." required="" />
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+												<div class="form-group">
+													<button type="button" id="btn_zz_recover" class="btn btn-sm btn-primary w-100">
+														<span>Restaurar</span>
+													</button>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+												<div class="text-center">
+													<a href="login/">
+														<span>Ingresar a mi cuenta?</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+<?= $this->insert('frontend/design/file-end'); ?>

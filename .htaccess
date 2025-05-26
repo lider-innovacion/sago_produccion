@@ -1,0 +1,30 @@
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|json|lock|swp|py|xml|phtml|g)|~)$">
+	Order allow,deny
+	Deny from all
+	Satisfy All
+</FilesMatch>
+
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+
+Header always append X-Frame-Options SAMEORIGIN
+
+Header add Strict-Transport-Security "max-age=157689999; includeSubDomains; preload"
+
+Header set X-XSS-Protection "1; mode=block"
+
+Header set X-Content-Type-Options "nosniff"
+
+Header set Referrer-Policy no-referrer-when-downgrade
+
+Header set Content-Security-Policy "self"
+
+Header always set Permissions-Policy "geolocation=(); midi=();notifications=();push=();sync-xhr=();accelerometer=(); gyroscope=(); magnetometer=(); payment=(); camera=(); microphone=();usb=(); xr=();speaker=(self);vibrate=();fullscreen=(self);"

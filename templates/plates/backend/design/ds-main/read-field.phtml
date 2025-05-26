@@ -1,0 +1,28 @@
+<?php $var_m_zz_design = new m_zz_designModel; ?>
+<?php $var_system_message = $var_m_zz_design->sql_system_message(); ?>
+<?php if (false != $var_system_message): ?>
+	<?php foreach ($var_system_message as $key): ?>
+		<?php if (isset($_GET[$key['lbl_azp_message_get_t_name']])): ?>
+			<?php if ($_GET[$key['lbl_azp_message_get_t_name']] == $key['lbl_azp_system_message_t_name']): ?>
+				<div class="alert <?= $key['lbl_azp_configuration_alert_t_name']; ?> alert-dismissable fade show" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true"><i class="fal fa-times"></i></span>
+					</button>
+					<div class="d-flex align-items-center">
+						<div class="alert-icon">
+							<span class="icon-stack icon-stack-sm">
+								<!--<i class="base-2 icon-stack-3x color-info-400"></i>
+								<i class="base-10 text-white icon-stack-1x"></i>-->
+								<i class="far fa-sensor-alert color-info-800 icon-stack-2x"></i>
+							</span>
+						</div>
+						<div class="flex-1">
+							<span class="h5 m-0 fw-700"><?= $key['lbl_azp_message_general_t_name']; ?>:</span>
+							<span><?= $key['lbl_azp_system_message_t_message']; ?></span>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+		<?php endif; ?>
+	<?php endforeach; ?>
+<?php endif; ?>

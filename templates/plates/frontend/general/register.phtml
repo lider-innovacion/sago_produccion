@@ -1,0 +1,224 @@
+<?= $this->insert('frontend/design/file-start'); ?>
+	<main id="main">
+		<section id="breadcrumbs" class="breadcrumbs">
+			<div class="container">
+				<ol>
+					<li>
+						<a href="home/">
+							<span>Inicio</span>
+						</a>
+					</li>
+					<li>
+						<a href="register/">
+							<span>Registro</span>
+						</a>
+					</li>
+				</ol>
+				<h4>
+					Registrate en <?= APP; ?>
+				</h4>
+			</div>
+		</section>
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="section-title">
+					<h3><span>¿Que Esperas?</span></h3>
+					<p><?= APP; ?> te conecta mejor con nosotros</p>
+					<p><?= APP; ?> te muestra los mejores productos</p>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="info">
+									<div class="email">
+										<i class="icofont-google-map"></i>
+										<h4>Localizacion:</h4>
+										<p>Mi Direccion</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="info">
+									<div class="email">
+										<i class="icofont-envelope"></i>
+										<h4>Contacto:</h4>
+										<p>email@gmail.com</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="info">
+									<div class="email">
+										<i class="icofont-phone"></i>
+										<h4>Llamame:</h4>
+										<p>+57 300 000 00 00</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_zz_register">
+							<div class="row mt-4">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="alert hide" id="ajax_zz_register"></div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="row">
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+											<div class="form-group">
+												<label for="field_email">
+													<span>Correo Electronico:</span>
+												</label>
+												<input type="text" name="field_email" id="field_email" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+											<div class="form-group">
+												<label for="field_login">
+													<span>Usuario:</span>
+												</label>
+												<input type="text" name="field_login" id="field_login" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+											<div class="form-group">
+												<label for="field_password">
+													<span>Contraseña:</span>
+												</label>
+												<input type="password" name="field_password" id="field_password" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+											<div class="form-group">
+												<label for="field_password_confirm">
+													<span>Confirmar Contraseña:</span>
+												</label>
+												<input type="password" name="field_password_confirm" id="field_password_confirm" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_names">
+													<span>Nombres:</span>
+												</label>
+												<input type="text" name="field_names" id="field_names" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_surnames">
+													<span>Apellidos:</span>
+												</label>
+												<input type="text" name="field_surnames" id="field_surnames" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_document_type">
+													<span>Tipo Documento:</span>
+												</label>
+												<select name="field_document_type" id="field_document_type" class="form-control" required="">
+													<option value="0">Seleccionar</option>
+													<?php if (false != $df_sql_select_tc_azp_document_type): ?>
+														<?php foreach ($df_sql_select_tc_azp_document_type as $key): ?>
+															<option value="<?= $key[d_azp_document_type_id_azp_document_type]; ?>">
+																<?= $key[d_azp_document_type_t_name]; ?>
+															</option>
+														<?php endforeach; ?>
+													<?php else: ?>
+														<option value="0">No existen resultados</option>
+													<?php endif; ?>
+												</select>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_identification">
+													<span>Identificacion:</span>
+												</label>
+												<input type="number" name="field_identification" id="field_identification" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_phone_fixed">
+													<span>Telefono Fijo:</span>
+												</label>
+												<input type="number" name="field_phone_fixed" id="field_phone_fixed" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_phone_movil">
+													<span>Telefono Movil:</span>
+												</label>
+												<input type="number" name="field_phone_movil" id="field_phone_movil" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_address">
+													<span>Direccion:</span>
+												</label>
+												<input type="text" name="field_address" id="field_address" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_birth_date">
+													<span>Fecha Nacimiento:</span>
+												</label>
+												<input type="date" name="field_birth_date" id="field_birth_date" class="form-control" placeholder="Digita el texto ..." required="">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="form-group">
+												<label for="field_country">
+													<span>Pais:</span>
+												</label>
+												<select name="field_country" id="field_country" class="form-control" required="">
+													<option value="0">Seleccionar</option>
+													<?php if (false != $df_sql_select_tc_azp_country): ?>
+														<?php foreach ($df_sql_select_tc_azp_country as $key): ?>
+															<option value="<?= $key[d_azp_country_id_azp_country]; ?>">
+																<?= $key[d_azp_country_t_name]; ?>
+															</option>
+														<?php endforeach; ?>
+													<?php else: ?>
+														<option value="0">No existen resultados</option>
+													<?php endif; ?>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+									<div class="row mt-3">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+											<div class="form-group">
+												<button type="button" id="btn_zz_register" class="btn btn-md btn-primary btn-custom w-md waves-effect waves-light">
+													<span>Registrarme</span>
+												</button>
+											</div>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+											<div class="form-group">
+												<a href="login/" class="btn btn-md btn-success btn-customw-md waves-effect waves-light">
+													<span>Loguearme</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+<?= $this->insert('frontend/design/file-end'); ?>

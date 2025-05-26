@@ -1,0 +1,16 @@
+						<div class="d-none">
+							<?php if ($_SESSION[SESS_APP_ID] == 1): ?>
+								<?php if (DEBUG): ?>
+									<?php $this->insert('backend/design/ds-main/debug'); ?>
+								<?php endif; ?>
+							<?php endif; ?>
+						</div>
+					</main>
+				<?php $this->insert('backend/design/ds-end/footer'); ?>
+				<?php $this->insert('backend/design/ds-end/transparent'); ?>
+				<?php $this->insert('backend/design/ds-end/color'); ?>
+			</div>
+		</div>
+	</div>
+	<?php $this->insert('backend/design/ds-end/modal'); ?>
+	<?php $this->insert('backend/design/ds-end/script'); ?>

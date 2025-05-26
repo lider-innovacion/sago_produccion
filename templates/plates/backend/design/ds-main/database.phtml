@@ -1,0 +1,11 @@
+<script src="views/app/js/jquery.numeric.js"></script>
+<?php if (isset($_SESSION[SESS_APP_ID])) { ?>
+	<?php $var_m_zz_design = new m_zz_designModel; ?>
+	<?php $var_script_route = $var_m_zz_design->sql_script_route(); ?>
+	<?php if (false != $var_script_route): ?>
+		<?php foreach ($var_script_route as $key): ?>
+			<script src="<?= $key['lbl_azp_script_t_route']; ?>"></script>
+		<?php endforeach; ?>
+	<?php endif; ?>
+<?php } ?>
+<script>$('.numeric').numeric();</script>

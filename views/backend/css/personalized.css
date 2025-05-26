@@ -1,0 +1,29 @@
+/*.scrollinga::-webkit-scrollbar {
+	max-width: 50%;
+	height: 15px;
+}
+
+.scrollinga::-webkit-scrollbar-thumb {
+	background: #ff9d00;
+	border-radius: 5px;
+}
+
+.scrollings::-webkit-scrollbar {
+	max-width: 50%;
+	height: 15px;
+}
+
+.scrollings::-webkit-scrollbar-thumb {
+	background: #ff9d00;
+	border-radius: 5px;
+}*/
+
+.scrolling{
+	/*position: absolute;
+	top: -9999px;*/
+	max-width: 100%;
+	height: 250px;
+	overflow: hidden;
+	overflow-y: scroll;
+	/*overflow: scroll;*/
+}

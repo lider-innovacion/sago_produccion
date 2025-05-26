@@ -1,0 +1,2382 @@
+<?php $this->insert('backend/design/ds-main/file-start'); ?>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<div id="panel-1" class="panel rounded-0">
+				<div class="panel-container show">
+					<div class="panel-content p-0">
+						<div class="panel-tag p-2 bg-white">
+							<ol class="breadcrumb page-breadcrumb">
+								<li class="breadcrumb-item text-danger">
+									<a href="dashboard/" class="text-contrast">
+										<em class="far fa-tachometer-alt-average text-primary"></em>
+										<span class="text-dark">Dashboard</span>
+									</a>
+								</li>
+								<li class="breadcrumb-item text-danger">
+									<a href="gscclient/" class="text-contrast">
+										<em class="far fa-tachometer-alt-average text-primary"></em>
+										<span class="text-dark">Mis Informes</span>
+									</a>
+								</li>
+								<li class="position-absolute pos-top pos-right d-none d-sm-block text-dark">
+									<span class="js-get-date"></span>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<div class="alert alert-info alert-dismissible fade show p-2 rounded-0 mb-4" role="alert">
+				<div class="d-flex align-items-center">
+					<div class="alert-icon width-2">
+						<span class="icon-stack" style="font-size: 20px;">
+							<i class="base-2 icon-stack-3x color-primary-400"></i>
+							<i class="base-10 text-white icon-stack-1x"></i>
+							<i class="ni md-profile color-primary-800 icon-stack-2x"></i>
+						</span>
+					</div>
+					<div class="flex-1">
+						<strong>Acerca De:</strong>
+						<span>Modulo para el control de datos de información en la base de datos con múltiples acciones y permisos.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+			<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+				<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Mis Informes"
+				data-content="Informacion de los datos almancenados del registro en la base de datos.">
+					<a class="nav-link active p-3" data-toggle="tab" href="#tab-justified-dt-1" role="tab">
+						<i class="far fa-table text-success"></i>
+						<span class="hidden-sm-down ml-1">Mis Informes</span>
+					</a>
+				</li>
+				<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Graficos"
+				data-content="Informacion de los datos almancenados del registro en la base de datos.">
+					<a class="nav-link p-3" data-toggle="tab" href="#tab-justified-dt-2" role="tab" onclick="event_up_base();">
+						<i class="far fa-table text-success"></i>
+						<span class="hidden-sm-down ml-1">Graficos</span>
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content pt-4">
+				<div class="tab-pane fade show active" id="tab-justified-dt-1" role="tabpanel">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<div id="panel-1" class="panel">
+								<div class="panel-hdr bg-dark text-white rounded-0">
+									<h2 class="text-white">
+										<span class="icon-stack fs-xxl mr-2">
+											<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+											<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+											<i class="<?= $k_mc_ic['lbl_azp_icon_code_t_name']; ?> icon-stack-1x opacity-100 fa-spin"></i>
+										</span>
+										<span>Mis Informes</span>
+									</h2>
+									<div class="panel-toolbar">
+										<button class="btn btn-panel btn-primary" title="Informacion" data-toggle="modal"
+										data-target=".modal-div-info" data-offset="0,10" data-original-title="Informacion"></button>
+									</div>
+								</div>
+								<div class="panel-container show">
+									<div class="panel-content p-1">
+										<?php $this->insert('backend/design/ds-main/read-field'); ?>
+										<div class="row">
+											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+												<div class="hide" id="form_ajax_control"></div>
+											</div>
+											<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-xl-5 mb-3">
+												<div class="form-group">
+													<label class="form-label">
+														<span>Filtar Por Cedula</span>
+													</label>
+													<div class="input-group input-group-sm input-group-multi-transition">
+														<div class="input-group-prepend">
+															<button class="btn btn-xs btn-outline-danger" onclick="event_trash_gsc();">
+																<em class="far fa-trash-alt"></em>
+																<span>Limpiar</span>
+															</button>
+														</div>
+														<div class="input-group-prepend">
+															<button class="btn btn-xs btn-outline-dark" onclick="event_data_idntf();">
+																<em class="far fa-search"></em>
+																<span>Buscar</span>
+															</button>
+														</div>
+														<input type="text" name="field_bs_idntf" id="field_bs_idntf" class="form-control border-success" placeholder="Digita el texto ...">
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-xl-5 mb-3">
+												<!--<div class="form-group">
+													<label class="form-label">
+														<span>Filtar Por Rango Fechas</span>
+													</label>
+													<div class="input-group input-group-sm input-group-multi-transition">
+														<div class="input-group-prepend">
+															<button class="btn btn-xs btn-outline-danger" onclick="event_trash();">
+																<em class="far fa-trash-alt"></em>
+																<span>Limpiar</span>
+															</button>
+														</div>
+														<div class="input-group-prepend">
+															<button class="btn btn-xs btn-outline-dark" onclick="event_data_date();">
+																<em class="far fa-search"></em>
+																<span>Buscar</span>
+															</button>
+														</div>
+														<input type="date" name="field_bs_since" id="field_bs_since" class="form-control border-success" placeholder="Digita el texto ...">
+														<input type="date" name="field_bs_until" id="field_bs_until" class="form-control border-success" placeholder="Digita el texto ...">
+													</div>
+												</div>-->
+											</div>
+											<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
+												<?php if (false != $df_tc_azp_client_image): ?>
+													<?php foreach ($df_tc_azp_client_image as $key_img => $value_img): ?>
+														<?php $var_document = $value_img[d_azp_fct_client_w_document]; ?>
+														<?php $var_route = $value_img[d_azp_fct_client_w_route]; ?>
+														<?php $var_folder = $value_img[d_azp_fct_client_w_folder]; ?>
+														<?php $var_final = $var_route . $var_folder . $var_document; ?>
+														<div class="card border m-auto m-lg-0">
+															<img src="<?php echo str_replace('../', '', $var_final); ?>" class="img-preview preview-xs card-img-top">
+														</div>
+													<?php endforeach; ?>
+												<?php endif; ?>
+											</div>
+										</div>
+										<!--<div class="demo-window rounded mb-g shadow-1 m-auto">
+											<div class="demo-window-content p-1">-->
+												<div class="btn-group mb-1" role="group">
+													<?php /*if (false != $var_permits_btn_search): ?>
+														<div class="input-group-append mr-1">
+															<button type="button" class="btn btn-sm <?= $cd_btn_search[d_azp_configuration_button_t_name]; ?>"
+															title="Buscador" tabindex="0" aria-controls="dt_user" data-toggle="modal" data-target=".modal-div-filter-column">
+																<em class="far fa-search"></em>
+															</button>
+														</div>
+													<?php endif; ?>
+													<?php if (false != $var_permits_btn_action): ?>
+														<div class="input-group-append mr-1" id="div_info_data">
+															<button type="button" class="btn btn-sm <?= $cd_btn_action[d_azp_configuration_button_t_name]; ?>"
+															data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner bg-primary-500"></div></div>'
+															data-toggle="tooltip" data-original-title="Acciones" onclick="event_info_data();">
+																<em class="far fa-cog"></em>
+															</button>
+														</div>
+													<?php endif; ?>
+													<?php if (false != $var_permits_btn_action): ?>
+														<div class="d-none input-group-append mr-1" id="div_info_remove">
+															<button type="button" class="btn btn-sm <?= $cd_btn_action[d_azp_configuration_button_t_name]; ?>"
+															data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner bg-primary-500"></div></div>'
+															data-toggle="tooltip" data-original-title="Acciones" onclick="event_info_remove();">
+																<em class="far fa-cog"></em>
+															</button>
+														</div>
+													<?php endif; ?>
+													<?php if (false != $var_permits_btn_action): ?>
+														<div class="d-none input-group-append mr-1" id="div_info_eliminate">
+															<button type="button" class="btn btn-sm <?= $cd_btn_action[d_azp_configuration_button_t_name]; ?>"
+															data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner bg-primary-500"></div></div>'
+															data-toggle="tooltip" data-original-title="Acciones" onclick="event_info_eliminate();">
+																<em class="far fa-cog"></em>
+															</button>
+														</div>
+													<?php endif; ?>
+													<?php if (false != $var_permits_btn_export): ?>
+														<div class="input-group-append mr-1">
+															<button type="button" class="btn btn-sm <?= $cd_btn_export[d_azp_configuration_button_t_name]; ?>"
+															data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner bg-primary-500"></div></div>'
+															data-toggle="tooltip" data-original-title="Exportar" onclick="event_info_export();">
+																<em class="far fa-file-export"></em>
+															</button>
+														</div>
+													<?php endif; ?>
+													<?php if (false != $var_permits_btn_visible): ?>
+														<div class="input-group-append mr-1">
+															<button type="button" class="btn btn-sm <?= $cd_btn_visible[d_azp_configuration_button_t_name]; ?>"
+															data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner bg-primary-500"></div></div>'
+															data-toggle="tooltip" data-original-title="Visibilidad" onclick="event_info_visible();">
+																<em class="far fa-low-vision"></em>
+															</button>
+														</div>
+													<?php endif;*/ ?>
+													<div class="input-group input-group-sm d-none">
+														<select name="field_ft_data" id="field_ft_data" class="custom-select form-control border-success" required="" onchange="event_data_info();">
+															<option value="1">Registros</option>
+														</select>
+													</div>
+												</div>
+												<div class="table-responsive">
+													<table id="dt_info" cellspacing="0" width="100%" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap">
+														<thead class="table-success"></thead>
+													</table>
+												</div>
+											<!--</div>
+										</div>-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="tab-justified-dt-2" role="tabpanel">
+					<div id="panel-1" class="panel">
+						<div class="panel-hdr bg-dark text-white">
+							<h2 class="text-white">
+								<span class="icon-stack fs-xxl mr-2">
+									<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+									<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+									<i class="far fa-tachometer-alt-average icon-stack-1x opacity-100 fa-spin"></i>
+								</span>
+								<span>Graficos</span>
+							</h2>
+							<div class="panel-toolbar">
+								<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+							</div>
+						</div>
+						<div class="panel-container show">
+							<div class="panel-content">
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3 d-none">
+										<div class="form-group">
+											<label for="field_gp_gsc_request" class="form-label">
+												<span>Ultima Base Cargada:</span>
+												<span class="text-danger">*</span>
+											</label>
+											<div class="input-group input-group-sm">
+												<select name="field_gp_gsc_request" id="field_gp_gsc_request" class="custom-select form-control border-success" required="">
+													<option value="">Seleccionar</option>
+													<?php if (false != $df_gsc_request_ultime): ?>
+														<?php foreach ($df_gsc_request_ultime as $key): ?>
+															<option value="<?= $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>" selected="">
+																<?= $key['lbl_azp_gsc_request_t_number_request']; ?>
+															</option>
+														<?php endforeach; ?>
+													<?php else: ?>
+														<option value="">No existen resultados</option>
+													<?php endif; ?>
+												</select>
+												<div class="invalid-feedback">
+													<span>Seleciona un valor para el campo.</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mb-3">
+										<div class="form-group">
+											<label for="field_gp_gsc_number" class="form-label">
+												<span>Base:</span>
+												<span class="text-danger">*</span>
+											</label>
+											<div class="input-group input-group-sm">
+												<select name="field_gp_gsc_number" id="field_gp_gsc_number"
+												class="custom-select form-control border-success" required="">
+													<option value="">Seleccionar</option>
+													<?php if (false != $df_gsc_request_base): ?>
+														<?php foreach ($df_gsc_request_base as $key): ?>
+															<option value="<?= $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>">
+																<?= $key['lbl_azp_gsc_request_t_number_request']; ?>
+															</option>
+														<?php endforeach; ?>
+													<?php else: ?>
+														<option value="">No existen resultados</option>
+													<?php endif; ?>
+												</select>
+												<div class="input-group-append">
+													<button type="button" class="btn btn-sm btn-outline-dark btn-block" onclick="event_gp_management(); event_gp_effecty(); event_gp_gestion(); event_gp_causal_s(); event_gp_causal_i();">
+														<em class="far fa-file"></em>
+														<span>Consultar</span>
+													</button>
+												</div>
+												<div class="invalid-feedback">
+													<span>Seleciona un valor para el campo.</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
+										<?php if (false != $df_tc_azp_client_image): ?>
+											<?php foreach ($df_tc_azp_client_image as $key_img => $value_img): ?>
+												<?php $var_document = $value_img[d_azp_fct_client_w_document]; ?>
+												<?php $var_route = $value_img[d_azp_fct_client_w_route]; ?>
+												<?php $var_folder = $value_img[d_azp_fct_client_w_folder]; ?>
+												<?php $var_final = $var_route . $var_folder . $var_document; ?>
+												<div class="card border m-auto m-lg-0">
+													<img src="<?php echo str_replace('../', '', $var_final); ?>" class="img-preview preview-xs card-img-top">
+												</div>
+											<?php endforeach; ?>
+										<?php endif; ?>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+										<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active p-3" data-toggle="tab" href="#tab_graphic_one" role="tab">
+													<i class="far fa-table text-success"></i>
+													<span class="hidden-sm-down ml-1">Gestion</span>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link p-3" data-toggle="tab" href="#tab_graphic_two" role="tab">
+													<i class="far fa-table text-success"></i>
+													<span class="hidden-sm-down ml-1">Efectividad</span>
+												</a>
+											</li>
+										</ul>
+										<div class="tab-content pt-4">
+											<div class="tab-pane fade show active" id="tab_graphic_one" role="tabpanel">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+														<div id="panel-6" class="panel">
+															<div class="panel-hdr bg-dark text-white">
+																<h2>Grafico</h2>
+																<div class="panel-toolbar">
+																	<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																	<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																	<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+																</div>
+															</div>
+															<div class="panel-container show">
+																<div class="panel-content">
+																	<div class="table-responsive">
+																		<table id="dt_causal_s" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap tb_causal_state" cellspacing="0" width="100%">
+																			<thead class="table-success"></thead>
+																		</table>
+																	</div>
+																	<div class="table-responsive">
+																		<table id="dt_causal_i" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap tb_causal_individual" cellspacing="0" width="100%">
+																			<thead class="table-success"></thead>
+																		</table>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+														<div id="panel-6" class="panel">
+															<div class="panel-hdr bg-dark text-white">
+																<h2>Grafico</h2>
+																<div class="panel-toolbar">
+																	<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																	<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																	<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+																</div>
+															</div>
+															<div class="panel-container show">
+																<div class="panel-content">
+																	<div id="graphic_gestion">
+																		<canvas style="width:100%; height:300px;"></canvas>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="tab_graphic_two" role="tabpanel">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+														<div id="panel-6" class="panel">
+															<div class="panel-hdr bg-dark text-white">
+																<h2>Grafico</h2>
+																<div class="panel-toolbar">
+																	<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																	<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																	<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+																</div>
+															</div>
+															<div class="panel-container show">
+																<div class="panel-content">
+																	<div id="graphic_management">
+																		<canvas style="width:100%; height:300px;"></canvas>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+														<div id="panel-6" class="panel">
+															<div class="panel-hdr bg-dark text-white">
+																<h2>Grafico</h2>
+																<div class="panel-toolbar">
+																	<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																	<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																	<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+																</div>
+															</div>
+															<div class="panel-container show">
+																<div class="panel-content">
+																	<div id="graphic_effecty">
+																		<canvas style="width:100%; height:300px;"></canvas>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel-content">
+								<div class="panel-tag">
+									<p class="text-justify text-contrast">
+										<span class="text-dark">
+											El manejo de datos de una interfaz a menudo es parte clave de una aplicación compleja, por eso te brindamos y proporcionamos dentro de la plataforma funcionalidades completas que te brindan una mayor experiencia con la interactividad de nuestro sistema a traves de nuestro portal o aplicacion web.
+										</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php $this->insert('backend/design/ds-main/file-end'); ?>
+	
+<script type="text/javascript">
+	// Definicion del valor del controlador
+	const var_controller = "<?= $df_var_controller; ?>";
+
+	// Ejecutar funcion
+	event_data_info();
+
+	event_df_management();
+	event_df_effecty();
+	event_df_gestion();
+
+	event_df_causal_s();
+	event_df_causal_i();
+
+	function event_data_info() {
+		// Column Definitions
+		var columnSet = [
+			{
+				title: "Id",
+				id: "lbl_azp_gsc_request_id_azp_gsc_request",
+				data: "lbl_azp_gsc_request_id_azp_gsc_request",
+				type: "text",
+				className: "text-dark",
+				visible: false,
+			},
+			{
+				title: "Cliente",
+				id: "lbl_azp_fct_client_t_name",
+				data: "lbl_azp_fct_client_t_name",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Solicitud",
+				id: "lbl_azp_gsc_request_t_number_request",
+				data: "lbl_azp_gsc_request_t_number_request",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Fecha Solicitud",
+				id: "lbl_azp_gsc_request_t_request_date",
+				data: "lbl_azp_gsc_request_t_request_date",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Registros",
+				id: "lbl_azp_gsc_request_t_count",
+				data: "lbl_azp_gsc_request_t_count",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Informe",
+				id: "lbl_azp_gsc_request_t_inform_client",
+				data: "lbl_azp_gsc_request_t_inform_client",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+		];
+		// Inicializar tabla de datos
+		var myTable = $('#dt_info').dataTable({
+			// Reinicialiar los datos de la tabla
+			destroy: true,
+			// Estructura de las columnas para el DOOM
+			dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+				//+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+				//+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+			// Leer datos de prácticamente cualquier fuente de datos JSON
+			ajax: var_controller + "gscbase/",
+			// Cargar columnas del encabezado
+			columns: columnSet,
+			// Opciones para crear, editar, borrar y sincronizar
+			altEditor: true,
+			// Combinar valores en las demas celdas
+			//autoFill: true,
+			// Control de funciones Manejo inteligente del ancho de columna
+			autoWidth: true,
+			// Movilizar columnas en la tabla
+			colReorder: true,
+			// Creará todos los elementos HTML necesarios por adelantado
+			deferRender: true,
+			// Fijar columnas en la tabla
+			//fixedColumns: true,
+			// Fijar columnas en la parte superior de la tabla
+			fixedHeader: true,
+			// Mostrar entradas de los registros
+			info: true,
+			// Focalizar una celda de la tabla
+			//keys: true,
+			// Cambiar numero de registros por pagina
+			lengthChange: false,
+			// Definir cantidad de registros por paginacion
+			lengthMenu: [[10, 20, 30, 40, 50, -1,], [10, 20, 30, 40, 50, 'Todo',],],
+			// Ordenar columnas en ascendente o descendente
+			order: [[0, 'desc',]],
+			// Controlar si las tablas de datos deben usar celda única superior
+			orderCellsTop: true,
+			// Ordenar segun columna los registros
+			ordering: true,
+			// Paginar registros limitadamente
+			paging: true,
+			// Procesando informacion de registros
+			processing: true,
+			// Control para el tamaño de la tabla de datos
+			responsive: true,
+			// Agrupar las filas de los registros
+			//rowGroup: true,
+			// Control de busqueda de registros
+			searching: true,
+			// Selccionar varias filas de registro
+			select: 'single',
+			// Procesamiento del lado del servidor
+			//serverSide: true,
+			// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+			//scroller: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollCollapse: true,
+			// Control para el desplazamiento de derecha a izquiera
+			scrollX: true,
+			// Control para el desplazamiento medido de arriba abajo
+			scrollY: 300,
+			// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+			stateSave: false,
+			// Botones que usan clases de bootstrap
+			buttons: [
+				{
+					text: '<i class="far fa-sync"></i> Sincronizar',
+					titleAttr: 'Sincronizar',
+					name: 'refresh',
+					className: 'btn-sm btn-outline-primary',
+					attr: {
+						'id': 'table_btn_sync',
+						'name': 'table_btn_sync',
+					},
+				},
+				{
+					text: '<i class="far fa-align-center"></i> Detalle Base',
+					titleAttr: 'Detalle Base',
+					className: 'btn-sm btn-outline-info',
+					attr: {
+						'id': 'table_btn_detail',
+						'name': 'table_btn_detail',
+						'onclick': 'event_detail();',
+					},
+				},
+				{
+					text: '<i class="far fa-chart-bar"></i> Informe Cliente',
+					titleAttr: 'Informe Cliente',
+					className: 'btn-sm btn-outline-success',
+					attr: {
+						'id': 'table_btn_download',
+						'name': 'table_btn_download',
+						'onclick': 'event_cl_information();',
+					},
+				},
+				{
+					extend: 'copyHtml5',
+					text: '<i class="far fa-copy"></i>',
+					titleAttr: 'Copiar',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_copy',
+						'name': 'table_btn_copy',
+					},
+				},
+				{
+					extend: 'pdfHtml5',
+					text: '<i class="far fa-file-pdf"></i>',
+					titleAttr: 'PDF',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_pdf',
+						'name': 'table_btn_pdf',
+					},
+				},
+				{
+					extend: 'excelHtml5',
+					text: '<i class="far fa-file-excel"></i>',
+					titleAttr: 'Excel',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_excel',
+						'name': 'table_btn_excel',
+					},
+				},
+				{
+					extend: 'csvHtml5',
+					text: '<i class="far fa-file-csv"></i>',
+					titleAttr: 'CSV',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_csv',
+						'name': 'table_btn_csv',
+					},
+				},
+				{
+					autoPrint: true,
+					extend: 'print',
+					text: '<i class="far fa-print"></i>',
+					titleAttr: 'Imprimir',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_print',
+						'name': 'table_btn_print',
+					},
+				},
+				{
+					columns: [1, 2, 3, 4, 5,],
+					extend: 'columnToggle',
+					text: '<i class="far fa-low-vision"></i>',
+					titleAttr: 'Extender',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_column_toggle',
+						'name': 'table_btn_column_toggle',
+					},
+				},
+				{
+					extend: 'colvisRestore',
+					text: '<i class="far fa-low-vision"></i>',
+					titleAttr: 'Restaurar',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_colvis_restore',
+						'name': 'table_btn_colvis_restore',
+					},
+				},
+				{
+					extend: 'colvis',
+					text: '<i class="far fa-low-vision"></i>',
+					titleAttr: 'Visible',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_colvis_column',
+						'name': 'table_btn_colvis_column',
+					},
+				},
+				{
+					extend: 'pageLength',
+					text: '<i class="far fa-database"></i> Paginacion',
+					titleAttr: 'Paginacion',
+					className: 'btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_page_length',
+						'name': 'table_btn_page_length',
+					},
+				},
+			],
+			// Establecer propiedades de inicialización de definición de columna.
+			columnDefs: [
+				{
+					targets: 5,
+					render: function(data, type, full, meta) {
+						var badge = {
+							'Si': {
+								'title': 'Si',
+								'class': 'badge-success'
+							},
+							'No': {
+								'title': 'No',
+								'class': 'badge-danger'
+							},
+							'null': {
+								'title': 'No',
+								'class': 'badge-danger'
+							},
+							'': {
+								'title': 'No',
+								'class': 'badge-danger'
+							},
+						};
+						if (typeof badge[data] === 'undefined') { return data; }
+						return '<span class="badge ' + badge[data].class + ' badge-pill">' + badge[data].title + '</span>';
+					},
+				},
+			],
+		});
+		// Filtrar valores de los campos
+		$('input.column_filter').on(
+			'change click keyup', function () {
+				event_filter_column(
+					$(this).parents('tr').attr('data-column')
+				);
+			}
+		);
+		// Asingacion de valores e indices
+		for (var i = 0; i <= 6; i++) {
+			// Control de validacion existente
+			if ($("#filter_col_" + i).length) {
+				// Identificar el id del campo
+				let input = document.getElementById("col_" + i + "_filter");
+				// Asignacion de valor a la propiedad del input
+				input.placeholder = columnSet[i]['title'];
+				// Asignacion de valor a la propiedad del input
+				input.type = columnSet[i]['type'];
+			}
+		}
+		// Asingacion de valores e indices
+		for (var i = 7; i <= columnSet.length - 1; i++) {
+			// Control de validacion existente
+			if ($("#filter_col_" + i).length) {
+				let input = document.getElementById("col_" + i + "_filter");
+				// Asignacion de valor a la propiedad del input
+				input.placeholder = columnSet[i]['title'];
+				// Asignacion de valor a la propiedad del input
+				input.type = columnSet[i]['type'];
+			}
+		}
+	};
+
+	function event_data_idntf() {
+		const ft_idntf = document.getElementById("field_bs_idntf").value;
+		// Column Definitions
+		var columnSet = [
+			{
+				title: "Id",
+				id: "lbl_azp_gsc_request_id_azp_gsc_request",
+				data: "lbl_azp_gsc_request_id_azp_gsc_request",
+				type: "text",
+				className: "text-dark",
+				visible: false,
+			},
+			{
+				title: "Cliente",
+				id: "lbl_azp_fct_client_t_name",
+				data: "lbl_azp_fct_client_t_name",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Solicitud",
+				id: "lbl_azp_gsc_request_t_number_request",
+				data: "lbl_azp_gsc_request_t_number_request",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Fecha Solicitud",
+				id: "lbl_azp_gsc_request_t_request_date",
+				data: "lbl_azp_gsc_request_t_request_date",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Registros",
+				id: "lbl_azp_gsc_request_t_count",
+				data: "lbl_azp_gsc_request_t_count",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Informe",
+				id: "lbl_azp_gsc_request_t_inform_client",
+				data: "lbl_azp_gsc_request_t_inform_client",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+		];
+		// Inicializar tabla de datos
+		var myTable = $('#dt_info').dataTable({
+			// Reinicialiar los datos de la tabla
+			destroy: true,
+			// Estructura de las columnas para el DOOM
+			dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+				//+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+				//+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+			// Leer datos de prácticamente cualquier fuente de datos JSON
+			ajax: var_controller + "gscidntf/?field_idntf=" + ft_idntf,
+			// Cargar columnas del encabezado
+			columns: columnSet,
+			// Opciones para crear, editar, borrar y sincronizar
+			altEditor: true,
+			// Combinar valores en las demas celdas
+			//autoFill: true,
+			// Control de funciones Manejo inteligente del ancho de columna
+			autoWidth: true,
+			// Movilizar columnas en la tabla
+			colReorder: true,
+			// Creará todos los elementos HTML necesarios por adelantado
+			deferRender: true,
+			// Fijar columnas en la tabla
+			//fixedColumns: true,
+			// Fijar columnas en la parte superior de la tabla
+			fixedHeader: true,
+			// Mostrar entradas de los registros
+			info: true,
+			// Focalizar una celda de la tabla
+			//keys: true,
+			// Cambiar numero de registros por pagina
+			lengthChange: false,
+			// Definir cantidad de registros por paginacion
+			lengthMenu: [[10, 20, 30, 40, 50, -1,], [10, 20, 30, 40, 50, 'Todo',],],
+			// Ordenar columnas en ascendente o descendente
+			order: [[0, 'desc',]],
+			// Controlar si las tablas de datos deben usar celda única superior
+			orderCellsTop: true,
+			// Ordenar segun columna los registros
+			ordering: true,
+			// Paginar registros limitadamente
+			paging: true,
+			// Procesando informacion de registros
+			processing: true,
+			// Control para el tamaño de la tabla de datos
+			responsive: true,
+			// Agrupar las filas de los registros
+			//rowGroup: true,
+			// Control de busqueda de registros
+			searching: true,
+			// Selccionar varias filas de registro
+			select: 'single',
+			// Procesamiento del lado del servidor
+			//serverSide: true,
+			// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+			//scroller: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollCollapse: true,
+			// Control para el desplazamiento de derecha a izquiera
+			scrollX: true,
+			// Control para el desplazamiento medido de arriba abajo
+			scrollY: 300,
+			// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+			stateSave: false,
+			// Botones que usan clases de bootstrap
+			buttons: [
+				{
+					text: '<i class="far fa-sync"></i> Sincronizar',
+					titleAttr: 'Sincronizar',
+					name: 'refresh',
+					className: 'btn-sm btn-outline-primary',
+					attr: {
+						'id': 'table_btn_sync',
+						'name': 'table_btn_sync',
+					},
+				},
+				{
+					text: '<i class="far fa-align-center"></i> Detalle Base',
+					titleAttr: 'Detalle Base',
+					className: 'btn-sm btn-outline-info',
+					attr: {
+						'id': 'table_btn_detail',
+						'name': 'table_btn_detail',
+						'onclick': 'event_detail();',
+					},
+				},
+				{
+					text: '<i class="far fa-chart-bar"></i> Informe Cliente',
+					titleAttr: 'Informe Cliente',
+					className: 'btn-sm btn-outline-success',
+					attr: {
+						'id': 'table_btn_download',
+						'name': 'table_btn_download',
+						'onclick': 'event_cl_information();',
+					},
+				},
+				{
+					extend: 'copyHtml5',
+					text: '<i class="far fa-copy"></i>',
+					titleAttr: 'Copiar',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_copy',
+						'name': 'table_btn_copy',
+					},
+				},
+				{
+					extend: 'pdfHtml5',
+					text: '<i class="far fa-file-pdf"></i>',
+					titleAttr: 'PDF',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_pdf',
+						'name': 'table_btn_pdf',
+					},
+				},
+				{
+					extend: 'excelHtml5',
+					text: '<i class="far fa-file-excel"></i>',
+					titleAttr: 'Excel',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_excel',
+						'name': 'table_btn_excel',
+					},
+				},
+				{
+					extend: 'csvHtml5',
+					text: '<i class="far fa-file-csv"></i>',
+					titleAttr: 'CSV',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_csv',
+						'name': 'table_btn_csv',
+					},
+				},
+				{
+					autoPrint: true,
+					extend: 'print',
+					text: '<i class="far fa-print"></i>',
+					titleAttr: 'Imprimir',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_print',
+						'name': 'table_btn_print',
+					},
+				},
+				{
+					columns: [1, 2, 3, 4, 5,],
+					extend: 'columnToggle',
+					text: '<i class="far fa-low-vision"></i>',
+					titleAttr: 'Extender',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_column_toggle',
+						'name': 'table_btn_column_toggle',
+					},
+				},
+				{
+					extend: 'colvisRestore',
+					text: '<i class="far fa-low-vision"></i>',
+					titleAttr: 'Restaurar',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_colvis_restore',
+						'name': 'table_btn_colvis_restore',
+					},
+				},
+				{
+					extend: 'colvis',
+					text: '<i class="far fa-low-vision"></i>',
+					titleAttr: 'Visible',
+					className: 'd-none btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_colvis_column',
+						'name': 'table_btn_colvis_column',
+					},
+				},
+				{
+					extend: 'pageLength',
+					text: '<i class="far fa-database"></i> Paginacion',
+					titleAttr: 'Paginacion',
+					className: 'btn-sm btn-outline-dark',
+					attr: {
+						'id': 'table_btn_page_length',
+						'name': 'table_btn_page_length',
+					},
+				},
+			],
+			// Establecer propiedades de inicialización de definición de columna.
+			columnDefs: [
+				{
+					targets: 5,
+					render: function(data, type, full, meta) {
+						var badge = {
+							'Si': {
+								'title': 'Si',
+								'class': 'badge-success'
+							},
+							'No': {
+								'title': 'No',
+								'class': 'badge-danger'
+							},
+							'null': {
+								'title': 'No',
+								'class': 'badge-danger'
+							},
+							'': {
+								'title': 'No',
+								'class': 'badge-danger'
+							},
+						};
+						if (typeof badge[data] === 'undefined') { return data; }
+						return '<span class="badge ' + badge[data].class + ' badge-pill">' + badge[data].title + '</span>';
+					},
+				},
+			],
+		});
+		// Filtrar valores de los campos
+		$('input.column_filter').on(
+			'change click keyup', function () {
+				event_filter_column(
+					$(this).parents('tr').attr('data-column')
+				);
+			}
+		);
+		// Asingacion de valores e indices
+		for (var i = 0; i <= 6; i++) {
+			// Control de validacion existente
+			if ($("#filter_col_" + i).length) {
+				// Identificar el id del campo
+				let input = document.getElementById("col_" + i + "_filter");
+				// Asignacion de valor a la propiedad del input
+				input.placeholder = columnSet[i]['title'];
+				// Asignacion de valor a la propiedad del input
+				input.type = columnSet[i]['type'];
+			}
+		}
+		// Asingacion de valores e indices
+		for (var i = 7; i <= columnSet.length - 1; i++) {
+			// Control de validacion existente
+			if ($("#filter_col_" + i).length) {
+				let input = document.getElementById("col_" + i + "_filter");
+				// Asignacion de valor a la propiedad del input
+				input.placeholder = columnSet[i]['title'];
+				// Asignacion de valor a la propiedad del input
+				input.type = columnSet[i]['type'];
+			}
+		}
+		// Recargar la tabla con nueva informacion
+		if ($("#dt_info").length) { $('#dt_info').DataTable().ajax.reload(); }
+	};
+
+	function event_trash_gsc() {
+		//var since = document.getElementById('field_bs_since').value = '';
+		//var until = document.getElementById('field_bs_until').value = '';
+		var identification = document.getElementById('field_bs_idntf').value = '';
+		event_data_info();
+	};
+
+	function event_up_base() {
+		// Recargar la tabla con nueva informacion
+		if ($("#dt_info").length) { $('#dt_info').DataTable().ajax.reload(); }
+	};
+
+	function event_detail() {
+		// Activar columnas especificadas de la tabla
+		var vtable = $('#dt_info').DataTable();
+		vtable.column(0).visible(true);
+		// Obtener el primer valor seleccionado de la tabla
+		var idtbl = $("#dt_info tr.selected td:first").html();
+		// Validar si el id es mayor a cero
+		if (idtbl > 0) {
+			// Activar columnas especificadas de la tabla
+			var vtable = $('#dt_info').DataTable();
+			vtable.column(0).visible(false);
+			window.location.href = 'azpgscrequest/info/' + idtbl + '/';
+		} else {
+			// Activar columnas especificadas de la tabla
+			var vtable = $('#dt_info').DataTable();
+			vtable.column(0).visible(false);
+			// Mensaje de audio para mostrar en la pagina web
+			initApp.playSound('views/templates/smart/dist/media/sound', 'voice_on');
+			bootbox.alert({
+				size: "small",
+				title: "<i class='fal fa-times-circle text-danger mr-2'></i> <span class='text-danger fw-500'>Error!</span>",
+				message: "<span><strong>Lo sentimos:</strong> No haz seleccionado ningun registro.</span>",
+				centerVertical: true,
+				className: "modal-alert",
+				closeButton: false,
+			});
+		}
+	};
+
+
+
+
+
+	function event_df_management() {
+		var control = document.getElementById('field_gp_gsc_request').value;
+		var val_ajax_name = var_url + "dashboard/gscrpmonthname/" + control + "/";
+		var val_ajax_data = var_url + "dashboard/gscrpmonthdata/" + control + "/";
+		var val_chart, val_options;
+		
+		// Enviar datos por ajax
+		$.ajax({
+			url: val_ajax_name,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.xAxis.categories = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		$.ajax({
+			url: val_ajax_data,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.series[0].data = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		val_options = {
+			chart: {
+				renderTo: 'graphic_management',
+				type: 'column'
+			},
+			title: {
+				text: 'Grafico Gestion'
+			},
+			xAxis: {
+				categories: []
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Informacion Base'
+				},
+				stackLabels: {
+					enabled: true,
+					style: {
+					fontWeight: 'bold',
+					color: (
+						Highcharts.defaultOptions.title.style &&
+						Highcharts.defaultOptions.title.style.color
+						) || 'gray'
+					}
+				}
+			},
+			legend: {
+				align: 'right',
+				x: -30,
+				verticalAlign: 'top',
+				y: 25,
+				floating: true,
+				backgroundColor:
+				Highcharts.defaultOptions.legend.backgroundColor || 'white',
+				borderColor: '#CCC',
+				borderWidth: 1,
+				shadow: false
+			},
+			tooltip: {
+				headerFormat: '<b>{point.x}</b><br/>',
+				pointFormat: 'Total: {point.stackTotal}'
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+					dataLabels: {
+						enabled: true
+					}
+				}
+			},
+			series: [
+				{
+					name: 'Gestion',
+					data: []
+				},
+			]
+		};
+	};
+
+	function event_df_effecty() {
+		var control = document.getElementById('field_gp_gsc_request').value;
+		var val_ajax_data = var_url + "dashboard/gscrpeffecty/" + control + "/";
+		var val_chart, val_options;
+		
+		$.ajax({
+			url: val_ajax_data,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.series[0].data = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		val_options = {
+			chart: {
+				renderTo: 'graphic_effecty',
+				type: 'variablepie',
+			},
+			title: {
+				text: 'Grafico Efectividad',
+			},
+			tooltip: {
+				headerFormat: '',
+				pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
+				'Cantidad: <b>{point.y}</b><br/>',
+			},
+			series: [
+				{
+					minPointSize: 10,
+					innerSize: '20%',
+					zMin: 0,
+					name: 'countries',
+					data: [],
+				},
+			],
+		};
+
+		//Highcharts.chart('graphic_effecty', {
+		/*val_options = {
+			chart: {
+				renderTo: 'graphic_effecty',
+				type: 'solidgauge',
+				height: '54%',
+				events: {
+					render: renderIcons
+				}
+			},
+
+			title: {
+				text: 'Grafico Efectividad',
+				style: {
+					fontSize: '24px'
+				}
+			},
+
+			tooltip: {
+				borderWidth: 0,
+				backgroundColor: 'none',
+				shadow: false,
+				style: {
+					fontSize: '16px'
+				},
+				valueSuffix: '%',
+				pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}</span>',
+				positioner: function (labelWidth) {
+					return {
+						x: (this.chart.chartWidth - labelWidth) / 2,
+						y: (this.chart.plotHeight / 2) + 15
+					};
+				}
+			},
+
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [
+					{
+						outerRadius: '100%',
+						innerRadius: '80%',
+						backgroundColor: Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
+						borderWidth: 0
+					},
+					{
+						outerRadius: '87%',
+						innerRadius: '63%',
+						backgroundColor: Highcharts.color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
+						borderWidth: 0
+					},
+					{
+						outerRadius: '62%',
+						innerRadius: '38%',
+						backgroundColor: Highcharts.color(Highcharts.getOptions().colors[2]).setOpacity(0.3).get(),
+						borderWidth: 0
+					}
+				]
+			},
+
+			yAxis: {
+				min: 0,
+				max: 100,
+				lineWidth: 0,
+				tickPositions: []
+			},
+
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: false
+					},
+					linecap: 'round',
+					stickyTracking: false,
+					rounded: true
+				}
+			},
+
+			series: [
+				{
+					name: 'Entregados',
+					data: [
+						{
+							color: Highcharts.getOptions().colors[0],
+							radius: '100%',
+							innerRadius: '75%',
+							//y: 75
+						}
+					]
+				},
+				{
+					name: 'Exercise',
+					data: [
+						{
+							color: Highcharts.getOptions().colors[1],
+							radius: '87%',
+							innerRadius: '63%',
+							y: 65
+						}
+					]
+				},
+				{
+					name: 'Stand',
+					data: [
+						{
+							color: Highcharts.getOptions().colors[2],
+							radius: '62%',
+							innerRadius: '38%',
+							y: 50
+						}
+					]
+				}
+			]
+		};*/
+		//});
+	};
+
+	function event_df_gestion() {
+		var control = document.getElementById('field_gp_gsc_request').value;
+		var val_ajax_name = var_url + "dashboard/gscrpgestionname/" + control + "/";
+		var val_ajax_data = var_url + "dashboard/gscrpgestiondata/" + control + "/";
+		var val_chart, val_options;
+		
+		// Enviar datos por ajax
+		$.ajax({
+			url: val_ajax_name,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.xAxis.categories = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		$.ajax({
+			url: val_ajax_data,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.series[0].data = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		val_options = {
+			chart: {
+				renderTo: 'graphic_gestion',
+				type: 'column'
+			},
+			title: {
+				text: 'Grafico Gestion'
+			},
+			xAxis: {
+				categories: []
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Informacion Base'
+				},
+				stackLabels: {
+					enabled: true,
+					style: {
+					fontWeight: 'bold',
+					color: (
+						Highcharts.defaultOptions.title.style &&
+						Highcharts.defaultOptions.title.style.color
+						) || 'gray'
+					}
+				}
+			},
+			legend: {
+				align: 'right',
+				x: -30,
+				verticalAlign: 'top',
+				y: 25,
+				floating: true,
+				backgroundColor:
+				Highcharts.defaultOptions.legend.backgroundColor || 'white',
+				borderColor: '#CCC',
+				borderWidth: 1,
+				shadow: false
+			},
+			tooltip: {
+				headerFormat: '<b>{point.x}</b><br/>',
+				pointFormat: 'Total: {point.stackTotal}'
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+					dataLabels: {
+						enabled: true
+					}
+				}
+			},
+			series: [
+				{
+					name: 'Gestion',
+					data: []
+				},
+			]
+		};
+	};
+
+	function event_df_causal_s() {
+		var control = document.getElementById('field_gp_gsc_request').value;
+		// Column Definitions
+		var columnSet = [
+			{
+				title: "Solicitud",
+				id: "lbl_number",
+				data: "lbl_number",
+				type: "text",
+				className: "text-dark",
+				visible: false,
+			},
+			{
+				title: "Estado",
+				id: "lbl_state",
+				data: "lbl_state",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Cedulas",
+				id: "lbl_count",
+				data: "lbl_count",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Porcentaje",
+				id: "lbl_percentage",
+				data: "lbl_percentage",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+		];
+		// Inicializar tabla de datos
+		var myTable = $('#dt_causal_s').dataTable({
+			// Reinicialiar los datos de la tabla
+			destroy: true,
+			// Estructura de las columnas para el DOOM
+			dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+					+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+			// Leer datos de prácticamente cualquier fuente de datos JSON
+			ajax: "dashboard/gscdtcausals/" + control + "/",
+			// Cargar columnas del encabezado
+			columns: columnSet,
+			// Opciones para crear, editar, borrar y sincronizar
+			altEditor: true,
+			// Combinar valores en las demas celdas
+			//autoFill: true,
+			// Control de funciones Manejo inteligente del ancho de columna
+			autoWidth: true,
+			// Movilizar columnas en la tabla
+			colReorder: true,
+			// Creará todos los elementos HTML necesarios por adelantado
+			deferRender: true,
+			// Fijar columnas en la tabla
+			//fixedColumns: true,
+			// Fijar columnas en la parte superior de la tabla
+			fixedHeader: true,
+			// Mostrar entradas de los registros
+			info: true,
+			// Focalizar una celda de la tabla
+			//keys: true,
+			// Cambiar numero de registros por pagina
+			lengthChange: false,
+			// Definir cantidad de registros por paginacion
+			lengthMenu: [[100, 200, 300, 400, 500, -1,], [100, 200, 300, 400, 500, 'Todo',]],
+			// Ordenar columnas en ascendente o descendente
+			order: [[0, "asc",]],
+			// Controlar si las tablas de datos deben usar celda única superior
+			orderCellsTop: true,
+			// Ordenar segun columna los registros
+			ordering: true,
+			// Paginar registros limitadamente
+			paging: true,
+			// Procesando informacion de registros
+			processing: true,
+			// Control para el tamaño de la tabla de datos
+			//responsive: true,
+			// Agrupar las filas de los registros
+			//rowGroup: true,
+			// Control de busqueda de registros
+			searching: false,
+			// Selccionar varias filas de registro
+			select: 'single',
+			// Procesamiento del lado del servidor
+			//serverSide: true,
+			// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+			//scroller: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollCollapse: true,
+			// Control para el desplazamiento de derecha a izquiera
+			//scrollX: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollY: 325,
+			// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+			stateSave: false,
+			// Botones que usan clases de bootstrap
+			buttons: [
+				{
+					extend: 'excelHtml5',
+					text: '<i class="far fa-file-excel"></i>',
+					titleAttr: 'Excel',
+					className: 'btn-sm btn-outline-success',
+					attr: {
+						'id': 'table_btn_excel',
+						'name': 'table_btn_excel',
+					},
+				},
+				{
+					extend: 'csvHtml5',
+					text: '<i class="far fa-file-csv"></i>',
+					titleAttr: 'CSV',
+					className: 'btn-sm btn-outline-info',
+					attr: {
+						'id': 'table_btn_csv',
+						'name': 'table_btn_csv',
+					},
+				},
+			],
+			columnDefs: [],
+		});
+	};
+
+	function event_df_causal_i() {
+		var control = document.getElementById('field_gp_gsc_request').value;
+		// Column Definitions
+		var columnSet = [
+			{
+				title: "Solicitud",
+				id: "lbl_number",
+				data: "lbl_number",
+				type: "text",
+				className: "text-dark",
+				visible: false,
+			},
+			/*{
+				title: "Estado",
+				id: "lbl_state",
+				data: "lbl_state",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},*/
+			{
+				title: "Causal",
+				id: "lbl_causal",
+				data: "lbl_causal",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Cedulas",
+				id: "lbl_count",
+				data: "lbl_count",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Porcentaje",
+				id: "lbl_percentage",
+				data: "lbl_percentage",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+		];
+		// Inicializar tabla de datos
+		var myTable = $('#dt_causal_i').dataTable({
+			// Reinicialiar los datos de la tabla
+			destroy: true,
+			// Estructura de las columnas para el DOOM
+			dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+					+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+			// Leer datos de prácticamente cualquier fuente de datos JSON
+			ajax: "dashboard/gscdtcausali/" + control + "/",
+			// Cargar columnas del encabezado
+			columns: columnSet,
+			// Opciones para crear, editar, borrar y sincronizar
+			altEditor: true,
+			// Combinar valores en las demas celdas
+			//autoFill: true,
+			// Control de funciones Manejo inteligente del ancho de columna
+			autoWidth: true,
+			// Movilizar columnas en la tabla
+			colReorder: true,
+			// Creará todos los elementos HTML necesarios por adelantado
+			deferRender: true,
+			// Fijar columnas en la tabla
+			//fixedColumns: true,
+			// Fijar columnas en la parte superior de la tabla
+			fixedHeader: true,
+			// Mostrar entradas de los registros
+			info: true,
+			// Focalizar una celda de la tabla
+			//keys: true,
+			// Cambiar numero de registros por pagina
+			lengthChange: false,
+			// Definir cantidad de registros por paginacion
+			lengthMenu: [[100, 200, 300, 400, 500, -1,], [100, 200, 300, 400, 500, 'Todo',]],
+			// Ordenar columnas en ascendente o descendente
+			order: [[0, "asc",]],
+			// Controlar si las tablas de datos deben usar celda única superior
+			orderCellsTop: true,
+			// Ordenar segun columna los registros
+			ordering: true,
+			// Paginar registros limitadamente
+			paging: true,
+			// Procesando informacion de registros
+			processing: true,
+			// Control para el tamaño de la tabla de datos
+			//responsive: true,
+			// Agrupar las filas de los registros
+			//rowGroup: true,
+			// Control de busqueda de registros
+			searching: false,
+			// Selccionar varias filas de registro
+			select: 'single',
+			// Procesamiento del lado del servidor
+			//serverSide: true,
+			// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+			//scroller: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollCollapse: true,
+			// Control para el desplazamiento de derecha a izquiera
+			//scrollX: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollY: 325,
+			// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+			stateSave: false,
+			// Botones que usan clases de bootstrap
+			buttons: [
+				{
+					extend: 'excelHtml5',
+					text: '<i class="far fa-file-excel"></i>',
+					titleAttr: 'Excel',
+					className: 'btn-sm btn-outline-success',
+					attr: {
+						'id': 'table_btn_excel',
+						'name': 'table_btn_excel',
+					},
+				},
+				{
+					extend: 'csvHtml5',
+					text: '<i class="far fa-file-csv"></i>',
+					titleAttr: 'CSV',
+					className: 'btn-sm btn-outline-info',
+					attr: {
+						'id': 'table_btn_csv',
+						'name': 'table_btn_csv',
+					},
+				},
+			],
+			columnDefs: [],
+		});
+	};
+
+
+
+
+
+	function event_gp_management() {
+		var control = document.getElementById('field_gp_gsc_number').value;
+		var val_ajax_name = var_url + "dashboard/gscrpmonthname/" + control + "/";
+		var val_ajax_data = var_url + "dashboard/gscrpmonthdata/" + control + "/";
+		var val_chart, val_options;
+		
+		// Enviar datos por ajax
+		$.ajax({
+			url: val_ajax_name,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.xAxis.categories = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		$.ajax({
+			url: val_ajax_data,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.series[0].data = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		//Highcharts.chart('container', {
+		val_options = {
+			chart: {
+				renderTo: 'graphic_management',
+				type: 'column'
+			},
+			title: {
+				text: 'Grafico Gestion'
+			},
+			xAxis: {
+				categories: []
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Informacion Base'
+				},
+				stackLabels: {
+					enabled: true,
+					style: {
+					fontWeight: 'bold',
+					color: (
+						Highcharts.defaultOptions.title.style &&
+						Highcharts.defaultOptions.title.style.color
+						) || 'gray'
+					}
+				}
+			},
+			legend: {
+				align: 'right',
+				x: -30,
+				verticalAlign: 'top',
+				y: 25,
+				floating: true,
+				backgroundColor:
+				Highcharts.defaultOptions.legend.backgroundColor || 'white',
+				borderColor: '#CCC',
+				borderWidth: 1,
+				shadow: false
+			},
+			tooltip: {
+				headerFormat: '<b>{point.x}</b><br/>',
+				pointFormat: 'Total: {point.stackTotal}'
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+					dataLabels: {
+						enabled: true
+					}
+				}
+			},
+			series: [
+				{
+					name: 'Gestion',
+					data: []
+				},
+			]
+		};
+		//});
+	};
+
+	function event_gp_effecty() {
+		var control = document.getElementById('field_gp_gsc_number').value;
+		var val_ajax_data = var_url + "dashboard/gscrpeffecty/" + control + "/";
+		var val_chart, val_options;
+		
+		$.ajax({
+			url: val_ajax_data,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.series[0].data = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		val_options = {
+			chart: {
+				renderTo: 'graphic_effecty',
+				type: 'variablepie',
+			},
+			title: {
+				text: 'Grafico Efectividad',
+			},
+			tooltip: {
+				headerFormat: '',
+				pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
+				'Cantidad: <b>{point.y}</b><br/>',
+			},
+			series: [
+				{
+					minPointSize: 10,
+					innerSize: '20%',
+					zMin: 0,
+					name: 'countries',
+					data: [],
+				},
+			],
+		};
+	};
+
+	function event_gp_gestion() {
+		var control = document.getElementById('field_gp_gsc_number').value;
+		var val_ajax_name = var_url + "dashboard/gscrpgestionname/" + control + "/";
+		var val_ajax_data = var_url + "dashboard/gscrpgestiondata/" + control + "/";
+		var val_chart, val_options;
+		
+		// Enviar datos por ajax
+		$.ajax({
+			url: val_ajax_name,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.xAxis.categories = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		$.ajax({
+			url: val_ajax_data,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				val_options.series[0].data = data;
+				val_chart = new Highcharts.chart(val_options);
+			}
+		});
+
+		val_options = {
+			chart: {
+				renderTo: 'graphic_gestion',
+				type: 'column'
+			},
+			title: {
+				text: 'Grafico Gestion'
+			},
+			xAxis: {
+				categories: []
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Informacion Base'
+				},
+				stackLabels: {
+					enabled: true,
+					style: {
+					fontWeight: 'bold',
+					color: (
+						Highcharts.defaultOptions.title.style &&
+						Highcharts.defaultOptions.title.style.color
+						) || 'gray'
+					}
+				}
+			},
+			legend: {
+				align: 'right',
+				x: -30,
+				verticalAlign: 'top',
+				y: 25,
+				floating: true,
+				backgroundColor:
+				Highcharts.defaultOptions.legend.backgroundColor || 'white',
+				borderColor: '#CCC',
+				borderWidth: 1,
+				shadow: false
+			},
+			tooltip: {
+				headerFormat: '<b>{point.x}</b><br/>',
+				pointFormat: 'Total: {point.stackTotal}'
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+					dataLabels: {
+						enabled: true
+					}
+				}
+			},
+			series: [
+				{
+					name: 'Gestion',
+					data: []
+				},
+			]
+		};
+	};
+
+	function event_gp_causal_s() {
+		var control = document.getElementById('field_gp_gsc_number').value;
+		// Column Definitions
+		var columnSet = [
+			{
+				title: "Solicitud",
+				id: "lbl_number",
+				data: "lbl_number",
+				type: "text",
+				className: "text-dark",
+				visible: false,
+			},
+			{
+				title: "Estado",
+				id: "lbl_state",
+				data: "lbl_state",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Cedulas",
+				id: "lbl_count",
+				data: "lbl_count",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Porcentaje",
+				id: "lbl_percentage",
+				data: "lbl_percentage",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+		];
+		// Inicializar tabla de datos
+		var myTable = $('#dt_causal_s').dataTable({
+			// Reinicialiar los datos de la tabla
+			destroy: true,
+			// Estructura de las columnas para el DOOM
+			dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+					+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+			// Leer datos de prácticamente cualquier fuente de datos JSON
+			ajax: "dashboard/gscdtcausals/" + control + "/",
+			// Cargar columnas del encabezado
+			columns: columnSet,
+			// Opciones para crear, editar, borrar y sincronizar
+			altEditor: true,
+			// Combinar valores en las demas celdas
+			//autoFill: true,
+			// Control de funciones Manejo inteligente del ancho de columna
+			autoWidth: true,
+			// Movilizar columnas en la tabla
+			colReorder: true,
+			// Creará todos los elementos HTML necesarios por adelantado
+			deferRender: true,
+			// Fijar columnas en la tabla
+			//fixedColumns: true,
+			// Fijar columnas en la parte superior de la tabla
+			fixedHeader: true,
+			// Mostrar entradas de los registros
+			info: true,
+			// Focalizar una celda de la tabla
+			//keys: true,
+			// Cambiar numero de registros por pagina
+			lengthChange: false,
+			// Definir cantidad de registros por paginacion
+			lengthMenu: [[100, 200, 300, 400, 500, -1,], [100, 200, 300, 400, 500, 'Todo',]],
+			// Ordenar columnas en ascendente o descendente
+			order: [[0, "asc",]],
+			// Controlar si las tablas de datos deben usar celda única superior
+			orderCellsTop: true,
+			// Ordenar segun columna los registros
+			ordering: true,
+			// Paginar registros limitadamente
+			paging: true,
+			// Procesando informacion de registros
+			processing: true,
+			// Control para el tamaño de la tabla de datos
+			//responsive: true,
+			// Agrupar las filas de los registros
+			//rowGroup: true,
+			// Control de busqueda de registros
+			searching: false,
+			// Selccionar varias filas de registro
+			select: 'single',
+			// Procesamiento del lado del servidor
+			//serverSide: true,
+			// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+			//scroller: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollCollapse: true,
+			// Control para el desplazamiento de derecha a izquiera
+			//scrollX: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollY: 325,
+			// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+			stateSave: false,
+			// Botones que usan clases de bootstrap
+			buttons: [
+				{
+					extend: 'excelHtml5',
+					text: '<i class="far fa-file-excel"></i>',
+					titleAttr: 'Excel',
+					className: 'btn-sm btn-outline-success',
+					attr: {
+						'id': 'table_btn_excel',
+						'name': 'table_btn_excel',
+					},
+				},
+				{
+					extend: 'csvHtml5',
+					text: '<i class="far fa-file-csv"></i>',
+					titleAttr: 'CSV',
+					className: 'btn-sm btn-outline-info',
+					attr: {
+						'id': 'table_btn_csv',
+						'name': 'table_btn_csv',
+					},
+				},
+			],
+			columnDefs: [],
+		});
+	};
+
+	function event_gp_causal_i() {
+		var control = document.getElementById('field_gp_gsc_number').value;
+		// Column Definitions
+		var columnSet = [
+			{
+				title: "Solicitud",
+				id: "lbl_number",
+				data: "lbl_number",
+				type: "text",
+				className: "text-dark",
+				visible: false,
+			},
+			/*{
+				title: "Estado",
+				id: "lbl_state",
+				data: "lbl_state",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},*/
+			{
+				title: "Causal",
+				id: "lbl_causal",
+				data: "lbl_causal",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Cedulas",
+				id: "lbl_count",
+				data: "lbl_count",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+			{
+				title: "Porcentaje",
+				id: "lbl_percentage",
+				data: "lbl_percentage",
+				type: "text",
+				className: "text-dark",
+				visible: true,
+			},
+		];
+		// Inicializar tabla de datos
+		var myTable = $('#dt_causal_i').dataTable({
+			// Reinicialiar los datos de la tabla
+			destroy: true,
+			// Estructura de las columnas para el DOOM
+			dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+					+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+				+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+			// Leer datos de prácticamente cualquier fuente de datos JSON
+			ajax: "dashboard/gscdtcausali/" + control + "/",
+			// Cargar columnas del encabezado
+			columns: columnSet,
+			// Opciones para crear, editar, borrar y sincronizar
+			altEditor: true,
+			// Combinar valores en las demas celdas
+			//autoFill: true,
+			// Control de funciones Manejo inteligente del ancho de columna
+			autoWidth: true,
+			// Movilizar columnas en la tabla
+			colReorder: true,
+			// Creará todos los elementos HTML necesarios por adelantado
+			deferRender: true,
+			// Fijar columnas en la tabla
+			//fixedColumns: true,
+			// Fijar columnas en la parte superior de la tabla
+			fixedHeader: true,
+			// Mostrar entradas de los registros
+			info: true,
+			// Focalizar una celda de la tabla
+			//keys: true,
+			// Cambiar numero de registros por pagina
+			lengthChange: false,
+			// Definir cantidad de registros por paginacion
+			lengthMenu: [[100, 200, 300, 400, 500, -1,], [100, 200, 300, 400, 500, 'Todo',]],
+			// Ordenar columnas en ascendente o descendente
+			order: [[0, "asc",]],
+			// Controlar si las tablas de datos deben usar celda única superior
+			orderCellsTop: true,
+			// Ordenar segun columna los registros
+			ordering: true,
+			// Paginar registros limitadamente
+			paging: true,
+			// Procesando informacion de registros
+			processing: true,
+			// Control para el tamaño de la tabla de datos
+			//responsive: true,
+			// Agrupar las filas de los registros
+			//rowGroup: true,
+			// Control de busqueda de registros
+			searching: false,
+			// Selccionar varias filas de registro
+			select: 'single',
+			// Procesamiento del lado del servidor
+			//serverSide: true,
+			// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+			//scroller: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollCollapse: true,
+			// Control para el desplazamiento de derecha a izquiera
+			//scrollX: true,
+			// Control para el desplazamiento medido de arriba abajo
+			//scrollY: 325,
+			// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+			stateSave: false,
+			// Botones que usan clases de bootstrap
+			buttons: [
+				{
+					extend: 'excelHtml5',
+					text: '<i class="far fa-file-excel"></i>',
+					titleAttr: 'Excel',
+					className: 'btn-sm btn-outline-success',
+					attr: {
+						'id': 'table_btn_excel',
+						'name': 'table_btn_excel',
+					},
+				},
+				{
+					extend: 'csvHtml5',
+					text: '<i class="far fa-file-csv"></i>',
+					titleAttr: 'CSV',
+					className: 'btn-sm btn-outline-info',
+					attr: {
+						'id': 'table_btn_csv',
+						'name': 'table_btn_csv',
+					},
+				},
+			],
+			columnDefs: [],
+		});
+	};
+
+	function event_cl_information() {
+		// Mostrar la columna especificada de la tabla
+		var vtable = $('#dt_info').DataTable();
+		vtable.column(0).visible(true);
+		// Obtener el primer valor seleccionado de la tabla
+		//var idtbl = document.getElementById('field_md_id').value;
+		var idtbl = $("#dt_info tr.selected td:first").html();
+		// Validar si el id es mayor a cero
+		if (idtbl > 0) {
+			// Definir los iconos para los correspondientes mensajes
+			var error_icon = '<span class="far fa-times-circle" aria-hidden="true"></span>' + ' ';
+			var success_icon = '<span class="far fa-check-circle" aria-hidden="true"></span>' + ' ';
+			var process_icon = '<span class="far fa-spinner fa-spin" aria-hidden="true"></span>' + ' ';
+			// Añadir y remover las clases incorporadas de las hojas de estilo
+			$('#form_ajax_control').removeClass('alert-danger');
+			$('#form_ajax_control').removeClass('alert-success');
+			$('#form_ajax_control').removeClass('alert-warning');
+			// Añadir y remover las clases incorporadas de las hojas de estilo
+			$('#form_ajax_control').addClass('alert-warning');
+			$("#form_ajax_control").html(process_icon  + 'Advertencia: Procesando información, por favor espere...');
+			$('#form_ajax_control').removeClass('hide');
+			$('#form_ajax_control').addClass('alert');
+			var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+			var ajaxurl = var_url + "dashboard/cpgscdetail/" + idtbl + "/";
+			request.open("GET", ajaxurl, true);
+			request.send();
+			//$('#modal-id-detail').modal('show');
+			request.onreadystatechange = function(){
+				if (request.readyState == 4 && request.status == 200) {
+					var objData = JSON.parse(request.responseText);
+					if (objData.status) {
+						var fdocument = objData.data.lbl_azp_gsc_information_w_document;
+						if (fdocument == '' || fdocument == 'null') {
+							setTimeout(function() {
+								$('#form_ajax_control').removeClass('alert');
+								$('#form_ajax_control').addClass('hide');
+								$('#form_ajax_control').html('');
+							}, 0);
+							// Mensaje de audio para mostrar en la pagina web
+							initApp.playSound('views/templates/smart/dist/media/sound', 'voice_on');
+							bootbox.alert({
+								size: "small",
+								title: "<i class='fal fa-times-circle text-warning mr-2'></i> <span class='text-warning fw-500'>Advertencia!</span>",
+								message: "<span><strong>Lo sentimos: El registro no contiene archivo.",
+								centerVertical: true,
+								className: "modal-alert",
+								closeButton: false,
+							});
+							// Mostrar la columna especificada de la tabla
+							var vtable = $('#dt_info').DataTable();
+							vtable.column(0).visible(false);
+						} else {
+							$('#form_ajax_control').removeClass('alert-danger');
+							$('#form_ajax_control').removeClass('alert-success');
+							$('#form_ajax_control').removeClass('alert-warning');
+							$('#form_ajax_control').addClass('alert-success');
+							$("#form_ajax_control").html(success_icon  + 'Exito: Archivo encontrado correctamente.');
+							$('#form_ajax_control').removeClass('hide');
+							setTimeout(function() {
+								$('#form_ajax_control').removeClass('alert');
+								$('#form_ajax_control').addClass('hide');
+								$('#form_ajax_control').html('');
+							}, 5000);
+							// Mostrar la columna especificada de la tabla
+							var vtable = $('#dt_info').DataTable();
+							vtable.column(0).visible(false);
+							// Definiendo valores de la busqueda de resultados
+							var wdocument = objData.data.lbl_azp_gsc_information_w_document;
+							var wfolder = objData.data.lbl_azp_gsc_information_w_folder;
+							var wname = objData.data.lbl_azp_gsc_information_w_name;
+							var wroute = objData.data.lbl_azp_gsc_information_w_route;
+							console.log(wroute + wfolder + wdocument);
+							var a = $("<a>").attr("href", var_url + wroute.replace('../','') + wfolder + wdocument).attr("download", wname).appendTo("body");
+							a[0].click();
+							a.remove();
+						}
+					} else {
+						setTimeout(function() {
+							$('#form_ajax_control').removeClass('alert');
+							$('#form_ajax_control').addClass('hide');
+							$('#form_ajax_control').html('');
+						}, 0);
+						// Mostrar la columna especificada de la tabla
+						var vtable = $('#dt_info').DataTable();
+						vtable.column(0).visible(false);
+						// Mensaje de audio para mostrar en la pagina web
+						initApp.playSound('views/templates/smart/dist/media/sound', 'voice_on');
+						bootbox.alert({
+							size: "small",
+							title: "<i class='fal fa-times-circle text-danger mr-2'></i> <span class='text-danger fw-500'>Error!</span>",
+							message: "<span><strong>Lo sentimos: El registro no contiene archivo.",
+							centerVertical: true,
+							className: "modal-alert",
+							closeButton: false,
+						});
+					}
+				}
+			}
+		} else {
+			// Mostrar la columna especificada de la tabla
+			var vtable = $('#dt_info').DataTable();
+			vtable.column(0).visible(false);
+			// Mensaje de audio para mostrar en la pagina web
+			initApp.playSound('views/templates/smart/dist/media/sound', 'voice_on');
+			bootbox.alert({
+				size: "small",
+				title: "<i class='fal fa-times-circle text-danger mr-2'></i> <span class='text-danger fw-500'>Error!</span>",
+				message: "<span><strong>Lo sentimos:</strong> No haz seleccionado ningun registro.</span>",
+				centerVertical: true,
+				className: "modal-alert",
+				closeButton: false,
+			});
+		}
+	};
+
+	function renderIcons() {
+		// Move icon
+		if (!this.series[0].icon) {
+			this.series[0].icon = this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8])
+			.attr(
+				{
+					stroke: '#303030',
+					'stroke-linecap': 'round',
+					'stroke-linejoin': 'round',
+					'stroke-width': 2,
+					zIndex: 10
+				}
+			).add(this.series[0].group);
+		}
+
+		this.series[0].icon.translate(
+			this.chartWidth / 2 - 10,
+			this.plotHeight / 2 - this.series[0].points[0].shapeArgs.innerR -
+			(this.series[0].points[0].shapeArgs.r - this.series[0].points[0].shapeArgs.innerR) / 2
+		);
+
+		// Exercise icon
+		/*if (!this.series[1].icon) {
+		this.series[1].icon = this.renderer.path(
+		['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8,
+		'M', 8, -8, 'L', 16, 0, 8, 8]
+		)
+		.attr({
+		stroke: '#ffffff',
+		'stroke-linecap': 'round',
+		'stroke-linejoin': 'round',
+		'stroke-width': 2,
+		zIndex: 10
+		})
+		.add(this.series[2].group);
+		}
+		this.series[1].icon.translate(
+		this.chartWidth / 2 - 10,
+		this.plotHeight / 2 - this.series[1].points[0].shapeArgs.innerR -
+		(this.series[1].points[0].shapeArgs.r - this.series[1].points[0].shapeArgs.innerR) / 2
+		);
+
+		// Stand icon
+		if (!this.series[2].icon) {
+		this.series[2].icon = this.renderer.path(['M', 0, 8, 'L', 0, -8, 'M', -8, 0, 'L', 0, -8, 8, 0])
+		.attr({
+		stroke: '#303030',
+		'stroke-linecap': 'round',
+		'stroke-linejoin': 'round',
+		'stroke-width': 2,
+		zIndex: 10
+		})
+		.add(this.series[2].group);
+		}
+
+		this.series[2].icon.translate(
+		this.chartWidth / 2 - 10,
+		this.plotHeight / 2 - this.series[2].points[0].shapeArgs.innerR -
+		(this.series[2].points[0].shapeArgs.r - this.series[2].points[0].shapeArgs.innerR) / 2
+		);*/
+	};
+</script>
+
+</body>
+</html>

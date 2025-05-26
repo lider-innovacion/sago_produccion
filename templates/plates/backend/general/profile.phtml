@@ -1,0 +1,404 @@
+<?php $this->insert('backend/design/ds-main/file-start'); ?>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4">
+			<div id="panel-1" class="panel">
+				<div class="panel-hdr bg-dark text-white">
+					<h2 class="text-white">
+						<span class="icon-stack fs-xxl mr-2">
+							<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+							<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+							<i class="fal fa-user-astronaut icon-stack-1x opacity-100 fa-spin"></i>
+						</span>
+						<span>Perfil De Usuario</span>
+					</h2>
+					<div class="panel-toolbar">
+						<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+					</div>
+				</div>
+				<div class="panel-container show">
+					<div class="panel-content">
+						<div class="row no-gutters row-grid">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<div class="d-flex flex-column align-items-center justify-content-center p-4">
+									<!--<img src="views/templates/smart/dist/img/demo/avatars/avatar-admin-lg.png" class="rounded-circle shadow-2 img-thumbnail" alt="">-->
+									<img src="views/backend/images/profile-user.png" class="rounded-circle shadow-2 img-thumbnail" alt="">
+									<h5 class="mb-0 fw-700 text-center mt-1">
+										<span class="text-dark">
+											<?= $df_sql_controller_detail['lbl_azp_data_personal_t_names']; ?>
+											<?= $df_sql_controller_detail['lbl_azp_data_personal_t_surnames']; ?>
+										</span>
+									</h5>
+									<h5 class="text-center mt-1">
+										<span class="text-dark">
+											Rol: <?= $df_sql_controller_detail['lbl_azp_role_t_name']; ?>
+										</span>
+									</h5>
+									<h5 class="text-center">
+										<span class="text-dark">
+											Usuario: <?= $df_sql_controller_detail['lbl_azp_user_t_login']; ?>
+										</span>
+									</h5>
+									<!--<div class="mt-4 text-center demo">
+										<a href="<?= $df_sql_controller_detail['lbl_azp_social_media_t_facebook']; ?>" class="fs-xl" style="color:#3b5998">
+											<i class="fab fa-facebook"></i>
+										</a>
+										<a href="<?= $df_sql_controller_detail['lbl_azp_social_media_t_twitter']; ?>" class="fs-xl" style="color:#38A1F3">
+											<i class="fab fa-twitter"></i>
+										</a>
+										<a href="<?= $df_sql_controller_detail['lbl_azp_social_media_t_google_plus']; ?>" class="fs-xl" style="color:#db3236">
+											<i class="fab fa-google-plus"></i>
+										</a>
+										<a href="<?= $df_sql_controller_detail['lbl_azp_social_media_t_linked_in']; ?>" class="fs-xl" style="color:#0077B5">
+											<i class="fab fa-linkedin-in"></i>
+										</a>
+									</div>-->
+								</div>
+							</div>
+							<!--<div class="col-6">
+								<div class="text-center py-3">
+									<h5 class="mb-0 fw-700">
+										<span>764</span>
+										<small class="text-muted mb-0">Connections</small>
+									</h5>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="text-center py-3">
+									<h5 class="mb-0 fw-700">
+										<span>1,673</span>
+										<small class="text-muted mb-0">Followers</small>
+									</h5>
+								</div>
+							</div>-->
+							<!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<div class="p-3 text-center">
+									<a href="javascript:void(0);" class="btn-link font-weight-bold">Follow</a>
+									-
+									<span class="text-primary d-inline-block mx-3">&#9679;</span>
+									-
+									<a href="javascript:void(0);" class="btn-link font-weight-bold">Message</a>
+									<span class="text-primary d-inline-block mx-3">&#9679;</span>
+									-
+									<a href="javascript:void(0);" class="btn-link font-weight-bold">Connect</a>
+								</div>
+							</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8">
+			<div id="panel-1" class="panel">
+				<div class="panel-hdr bg-dark text-white">
+					<h2 class="text-white">
+						<span class="icon-stack fs-xxl mr-2">
+							<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+							<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+							<i class="fal fa-user-astronaut icon-stack-1x opacity-100 fa-spin"></i>
+						</span>
+						<span>Datos Personales</span>
+					</h2>
+					<div class="panel-toolbar">
+						<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+					</div>
+				</div>
+				<div class="panel-container show">
+					<div class="panel-content">
+						<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Perfil"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link active" data-toggle="tab" href="#data_profile" role="tab">
+									<i class="far fa-user text-success"></i>
+									<span class="hidden-sm-down ml-1">Perfil</span>
+								</a>
+							</li>
+							<!--<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Datos"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_personal" role="tab">
+									<i class="far fa-user text-success"></i>
+									<span class="hidden-sm-down ml-1">Datos</span>
+								</a>
+							</li>-->
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Clave"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_password" role="tab">
+									<i class="far fa-key-skeleton text-success"></i>
+									<span class="hidden-sm-down ml-1">Clave</span>
+								</a>
+							</li>
+							<!--<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Redes"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_social_media" role="tab">
+									<i class="far fa-chart-network text-success"></i>
+									<span class="hidden-sm-down ml-1">Redes</span>
+								</a>
+							</li>-->
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Firma"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_firm" role="tab">
+									<i class="far fa-key-skeleton text-success"></i>
+									<span class="hidden-sm-down ml-1">Firma</span>
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content p-3">
+							<div class="tab-pane fade show active" id="data_profile" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_profile">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_profile">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Perfil</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_profile"></div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_names">
+													<span>Nombres:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_names" id="field_names" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_data_personal_t_names']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_surnames">
+													<span>Apellidos:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_surnames" id="field_surnames" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_data_personal_t_surnames']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_email">
+													<span>Correo Electronico:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_email" id="field_email" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_user_t_email']; ?>">
+												</div>
+											</div>
+										</div>
+										<!--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_country">
+													<span>Pais:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_country" id="field_country" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_country): ?>
+															<?php foreach ($df_sql_select_tc_azp_country as $key): ?>
+																<?php if ($key[d_azp_country_id_azp_country] == $df_sql_controller_update['lbl_azp_data_personal_v_id_azp_country']): ?>
+																	<option value="<?= $key[d_azp_country_id_azp_country]; ?>" selected>
+																		<?= $key[d_azp_country_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_country_id_azp_country]; ?>">
+																		<?= $key[d_azp_country_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>-->
+									</div>
+								</form>
+							</div>
+							<!--<div class="tab-pane fade" id="data_personal" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_personal">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_personal">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Datos</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_personal"></div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_phone_fixed">
+													<span>Telefono Fijo:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="number" name="field_phone_fixed" id="field_phone_fixed" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_data_personal_t_phone_fixed']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_phone_movil">
+													<span>Telefono Movil:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="number" name="field_phone_movil" id="field_phone_movil" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_data_personal_t_phone_movil']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_address">
+													<span>Direccion:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_address" id="field_address" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_data_personal_t_address']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="form-group">
+												<label for="field_birth_date">
+													<span>Fecha Nacimiento:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="date" name="field_birth_date" id="field_birth_date" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_data_personal_t_birth_date']; ?>">
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>-->
+							<div class="tab-pane fade" id="data_password" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_password">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_password">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Contraseña</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_password"></div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+											<div class="form-group">
+												<label for="field_password_new">
+													<span>Nueva Contraseña:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="password" name="field_password_new" id="field_password_new" class="form-control" placeholder="Digita el texto ..." required="">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+											<div class="form-group">
+												<label for="field_password_confirm">
+													<span>Confirmar Contraseña:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="password" name="field_password_confirm" id="field_password_confirm" class="form-control" placeholder="Digita el texto ..." required="">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+											<div class="form-group">
+												<label for="field_password_current">
+													<span>Contraseña Actual:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="password" name="field_password_current" id="field_password_current" class="form-control" placeholder="Digita el texto ..." required="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!--<div class="tab-pane fade" id="data_social_media" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_social_media">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_social_media">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Redes Sociales</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_social_media"></div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+											<div class="form-group">
+												<label for="field_facebook">
+													<span>Facebook:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_facebook" id="field_facebook" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_social_media_t_facebook']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+											<div class="form-group">
+												<label for="field_twitter">
+													<span>Twitter:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_twitter" id="field_twitter" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_social_media_t_twitter']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+											<div class="form-group">
+												<label for="field_google_plus">
+													<span>Google Plus:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_google_plus" id="field_google_plus" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_social_media_t_google_plus']; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+											<div class="form-group">
+												<label for="field_linked_in">
+													<span>Linked In:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="text" name="field_linked_in" id="field_linked_in" class="form-control" placeholder="Digita el texto ..." required="" value="<?= $df_sql_controller_update['lbl_azp_social_media_t_linked_in']; ?>">
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>-->
+							<div class="tab-pane fade" id="data_firm" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="multipart/form-data" method="POST" id="form_update_zv_firm">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_firm">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Firma</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_firm"></div>
+											<input type="hidden" name="field_id_image" id="field_id_image" class="form-control" placeholder="Digita el texto ..." required="" value="1">
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+											<div class="form-group">
+												<label for="field_firm">
+													<span>Archivo Imagen:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<input type="file" name="field_firm" id="field_firm" class="form-control" placeholder="Digita el texto ..." required="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php $this->insert('backend/design/ds-main/file-end'); ?>

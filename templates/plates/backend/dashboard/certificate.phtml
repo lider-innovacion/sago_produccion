@@ -1,0 +1,249 @@
+<?php $this->insert('backend/design/ds-main/file-start'); ?>
+	
+	<?php if ($var_permits_rols == 6): ?>
+		<?php header('location: ' . URL . 'dashboard/crtclient/'); ?>
+	<?php endif; ?>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<div id="panel-1" class="panel rounded-0">
+				<div class="panel-container show">
+					<div class="panel-content p-0">
+						<div class="panel-tag p-2 bg-white">
+							<ol class="breadcrumb page-breadcrumb">
+								<li class="breadcrumb-item text-danger">
+									<a href="dashboard/" class="text-contrast">
+										<em class="far fa-tachometer-alt-average text-primary"></em>
+										<span class="text-dark">Dashboard</span>
+									</a>
+								</li>
+								<li class="breadcrumb-item text-danger">
+									<a href="dashboard/" class="text-contrast">
+										<em class="far fa-tachometer-alt-average text-primary"></em>
+										<span class="text-dark">Certificados</span>
+									</a>
+								</li>
+								<li class="position-absolute pos-top pos-right d-none d-sm-block text-dark">
+									<span class="js-get-date"></span>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<div class="alert alert-info alert-dismissible fade show p-2 rounded-0 mb-4" role="alert">
+				<div class="d-flex align-items-center">
+					<div class="alert-icon width-2">
+						<span class="icon-stack" style="font-size: 20px;">
+							<i class="base-2 icon-stack-3x color-primary-400"></i>
+							<i class="base-10 text-white icon-stack-1x"></i>
+							<i class="ni md-profile color-primary-800 icon-stack-2x"></i>
+						</span>
+					</div>
+					<div class="flex-1">
+						<strong>Acerca De:</strong>
+						<span>Aplicativo para el control de datos e información y resumen de tu cuenta registrada en la base de datos.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div tabindex="-1" role="dialog" aria-hidden="true" id="modal-id-info" class="modal fade modal-div-info"
+	data-keyboard="false" data-backdrop="static" aria-labelledby="myCenterModalLabel" style="display: none;">
+		<div class="modal-dialog modal-dialog-scrollable modal-sm modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header bg-dark text-white">
+					<h5 class="modal-title text-white">Informacion</h5>
+					<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true"><i class="far fa-times"></i></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="panel-tag">
+								<p class="text-center text-contrast">
+									<span class="text-dark">
+										El manejo de datos de una interfaz a menudo es parte clave de una aplicación compleja, por eso te brindamos y proporcionamos dentro de la plataforma funcionalidades completas que te brindan una mayor experiencia con la interactividad de nuestro sistema a traves de nuestro portal o aplicacion web.
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-sm waves-effect waves-light btn-outline-primary" data-dismiss="modal">
+						<em class="far fa-times-circle"></em>
+						<span>Cerrar</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if ($var_permits_rols != 6): ?>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+				<div id="panel-1" class="panel">
+					<div class="panel-hdr bg-dark text-white">
+						<h2 class="text-white">
+							<span class="icon-stack fs-xxl mr-2">
+								<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+								<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+								<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+							</span>
+							<span>Dashboard</span>
+						</h2>
+					</div>
+					<div class="panel-container show">
+						<div class="panel-content">
+							<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+								<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Reportes Fases"
+								data-content="Informacion de los datos almancenados del registro en la base de datos.">
+									<a class="nav-link active p-3" data-toggle="tab" href="#tab-justified-dt-1" role="tab">
+										<i class="far fa-table text-success"></i>
+										<span class="hidden-sm-down ml-1">Reportes Fases</span>
+									</a>
+								</li>
+								<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Reportes Bitacora"
+								data-content="Informacion de los datos almancenados del registro en la base de datos.">
+									<a class="nav-link p-3" data-toggle="tab" href="#tab-justified-dt-2" role="tab">
+										<i class="far fa-table text-success"></i>
+										<span class="hidden-sm-down ml-1">Reportes Bitacora</span>
+									</a>
+								</li>
+							</ul>
+							<div class="tab-content pt-4">
+								<div class="tab-pane fade show active" id="tab-justified-dt-1" role="tabpanel">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+											<form class="form-horizontal needs-validation was-validated" novalidate="" role="form" enctype="application/x-www-form-urlencoded" id="form_zv_crt_client_phase">
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+														<div class="hide" id="form_ajax_zv_crt_client_phase"></div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_cp_date_sice" class="form-label">
+																<span>Fecha Desde:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_cp_date_sice" id="field_cp_date_sice"
+																class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_cp_date_until" class="form-label">
+																<span>Fecha Hasta:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_cp_date_until" id="field_cp_date_until"
+																class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 col-xl-6 mb-3">
+														<div class="form-group">
+															<label for="form_btn_zv_crt_client_phase" class="form-label">
+																<span>Accion:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<button type="button" onclick="zv_crt_client_phase();"
+																id="form_btn_zv_crt_client_phase" name="form_btn_zv_crt_client_phase"
+																class="btn btn-sm waves-effect waves-light btn-outline-dark">
+																	<em class="far fa-blinds"></em>
+																	<span class="hidden-md-down">Consultar</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="d-none col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3" id="div_jtf_dt_1">
+											<div class="table-responsive">
+												<table id="dt_report_crt_client_phase" cellspacing="0" width="100%"
+												class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap">
+													<thead class="table-success"></thead>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="tab-justified-dt-2" role="tabpanel">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+											<form class="form-horizontal needs-validation was-validated" novalidate="" role="form" enctype="application/x-www-form-urlencoded" id="form_zv_crt_binnacle">
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+														<div class="hide" id="form_ajax_zv_crt_binnacle"></div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_bn_date_sice" class="form-label">
+																<span>Fecha Mes:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="month" name="field_bn_date_sice" id="field_bn_date_sice"
+																class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 col-xl-6 mb-3">
+														<div class="form-group">
+															<label for="form_btn_zv_crt_binnacle" class="form-label">
+																<span>Accion:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<button type="button" onclick="zv_crt_binnacle();"
+																id="form_btn_zv_crt_binnacle" name="form_btn_zv_crt_binnacle"
+																class="btn btn-sm waves-effect waves-light btn-outline-dark">
+																	<em class="far fa-blinds"></em>
+																	<span class="hidden-md-down">Consultar</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="d-none col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3" id="div_jtf_dt_2">
+											<div class="table-responsive">
+												<table id="dt_report_crt_binnacle" cellspacing="0" width="100%"
+												class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap">
+													<thead class="table-success"></thead>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+<?php $this->insert('backend/design/ds-main/file-end'); ?>

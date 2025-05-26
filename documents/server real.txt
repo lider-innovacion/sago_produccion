@@ -1,0 +1,69 @@
+-------------------------------------------------------------------
+
+http://10.10.20.29/migration/
+http://10.10.20.29/phpmyadmin/
+
+-------------------------------------------------------------------
+
+VPN
+ip: 190.60.245.218
+key: 0A779A735F43AD21
+user: aumata
+pass: GscColombia15*/
+
+-------------------------------------------------------------------
+
+SSH
+ip: 10.10.20.29
+user: administrador
+pass: GscColombia2021!
+
+SSH
+ip: 10.10.20.250
+user: root
+pass: G$c2020%
+
+-------------------------------------------------------------------
+
+Mysql - PhpMyAdmin
+user: admin
+pass: GscColombia2021!
+
+Mysql - PhpMyAdmin
+user: admin
+pass: GscColombia2019
+
+-------------------------------------------------------------------
+
+Aplicativo General
+
+rol: Desarrollador
+user: root
+pass: Pruebas$$2020
+
+-------------------------------------------------------------------
+
+SMTP servidorsmtp-relay.sendinblue.com
+Puerto 587
+Usuario daniel.valero@branderideas.com
+pass: H1PdzY3XtWnaJUDx
+
+-------------------------------------------------------------------
+
+Creacion de carpetas y guardar archivos
+
+sudo su
+cd /var/www/
+chown -R www-data:www-data /var/www/html/
+
+Modificacion de archivos en el sistema
+
+sudo su
+cd /var/www/
+chown -R administrador:administrador /var/www/html/
+
+-------------------------------------------------------------------
+
+\\10.10.20.20\gsc\INTELIGENCIA DE NEGOCIOS\Desarrollo
+user: gsc0\aumata
+pass: DesarrolloGsc2021**

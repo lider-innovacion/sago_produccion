@@ -1,0 +1,1569 @@
+<?php $this->insert('backend/design/ds-main/file-start'); ?>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<div id="panel-1" class="panel">
+				<div class="panel-hdr bg-dark text-white">
+					<h2 class="text-white">
+						<span class="icon-stack fs-xxl mr-2">
+							<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+							<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+							<i class="fal fa-cog icon-stack-1x opacity-100 fa-spin"></i>
+						</span>
+						<span>Personalizacion</span>
+					</h2>
+					<div class="panel-toolbar">
+						<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+					</div>
+				</div>
+				<div class="panel-container show">
+					<div class="panel-content">
+						<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Diseño"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link active" data-toggle="tab" href="#data_design" role="tab">
+									<i class="far fa-atom text-success"></i>
+									<span class="hidden-sm-down ml-1">Diseño</span>
+								</a>
+							</li>
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Botones"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_button" role="tab">
+									<i class="far fa-ball-pile text-success"></i>
+									<span class="hidden-sm-down ml-1">Botones</span>
+								</a>
+							</li>
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Tablas"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_table" role="tab">
+									<i class="far fa-border-all text-success"></i>
+									<span class="hidden-sm-down ml-1">Tablas</span>
+								</a>
+							</li>
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Tablas"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_modal" role="tab">
+									<i class="far fa-border-all text-success"></i>
+									<span class="hidden-sm-down ml-1">Modales</span>
+								</a>
+							</li>
+							<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Tablas"
+							data-content="Campos requeridos para el registro en la base de datos.">
+								<a class="nav-link" data-toggle="tab" href="#data_panel" role="tab">
+									<i class="far fa-border-all text-success"></i>
+									<span class="hidden-sm-down ml-1">Paneles</span>
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content p-3">
+							<div class="tab-pane fade show active" id="data_design" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_setting_design">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_setting_design">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Diseño</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_setting_design"></div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_color">
+													<span>Color:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_color" id="field_color" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_color as $key): ?>
+																<?php if ($key[d_azp_configuration_color_id_azp_configuration_color] == $df_sql_controller_update['lbl_azp_configuration_design_t_color']): ?>
+																	<option value="<?= $key[d_azp_configuration_color_id_azp_configuration_color]; ?>" selected>
+																		<?= $key[d_azp_configuration_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_color_id_azp_configuration_color]; ?>">
+																		<?= $key[d_azp_configuration_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_dimension">
+													<span>Dimension:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_dimension" id="field_dimension" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_dimension): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_dimension as $key): ?>
+																<?php if ($key[d_azp_configuration_dimension_id_azp_configuration_dimension] == $df_sql_controller_update['lbl_azp_configuration_design_t_dimension']): ?>
+																	<option value="<?= $key[d_azp_configuration_dimension_id_azp_configuration_dimension]; ?>" selected>
+																		<?= $key[d_azp_configuration_dimension_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_dimension_id_azp_configuration_dimension]; ?>">
+																		<?= $key[d_azp_configuration_dimension_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_theme">
+													<span>Tema:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_theme" id="field_theme" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_theme): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_theme as $key): ?>
+																<?php if ($key[d_azp_configuration_theme_id_azp_configuration_theme] == $df_sql_controller_update['lbl_azp_configuration_design_t_theme']): ?>
+																	<option value="<?= $key[d_azp_configuration_theme_id_azp_configuration_theme]; ?>" selected>
+																		<?= $key[d_azp_configuration_theme_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_theme_id_azp_configuration_theme]; ?>">
+																		<?= $key[d_azp_configuration_theme_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="data_button" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_setting_button">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_setting_button">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Botones</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_setting_button"></div>
+										</div>
+									</div>
+									<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+										<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Acciones"
+										data-content="Campos requeridos para el registro en la base de datos.">
+											<a class="nav-link active" data-toggle="tab" href="#data_action" role="tab">
+												<i class="far fa-atom text-success"></i>
+												<span class="hidden-sm-down ml-1">Acciones</span>
+											</a>
+										</li>
+										<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Funciones"
+										data-content="Campos requeridos para el registro en la base de datos.">
+											<a class="nav-link" data-toggle="tab" href="#data_function" role="tab">
+												<i class="far fa-ball-pile text-success"></i>
+												<span class="hidden-sm-down ml-1">Funciones</span>
+											</a>
+										</li>
+									</ul>
+									<div class="tab-content p-3">
+										<div class="tab-pane fade show active" id="data_action" role="tabpanel">
+											<div class="row">
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_create">
+															<span>Nuevo:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_create" id="field_btn_create" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_create']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_delete">
+															<span>Eliminar:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_delete" id="field_btn_delete" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_delete']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_import">
+															<span>Importar:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_import" id="field_btn_import" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_import']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_remove">
+															<span>Remover:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_remove" id="field_btn_remove" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_remove']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_restore">
+															<span>Restaurar:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_restore" id="field_btn_restore" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_restore']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_update">
+															<span>Actualizar:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_update" id="field_btn_update" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_update']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="data_function" role="tabpanel">
+											<div class="row">
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_cancel">
+															<span>Cancelar:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_cancel" id="field_btn_cancel" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_cancel']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_change">
+															<span>Cambios:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_change" id="field_btn_change" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_change']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_copy">
+															<span>Copiar:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_copy" id="field_btn_copy" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_copy']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_csv">
+															<span>Csv:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_csv" id="field_btn_csv" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_csv']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_detail">
+															<span>Detalle:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_detail" id="field_btn_detail" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_detail']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_email">
+															<span>Correos:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_email" id="field_btn_email" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_email']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_excel">
+															<span>Excel:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_excel" id="field_btn_excel" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_excel']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_menu">
+															<span>Menu:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_menu" id="field_btn_menu" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_menu']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_pdf">
+															<span>Pdf:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_pdf" id="field_btn_pdf" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_pdf']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_print">
+															<span>Imprimir:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_print" id="field_btn_print" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_print']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_report">
+															<span>Reporte:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_report" id="field_btn_report" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_report']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_sub_menu_crud">
+															<span>Sub Menu:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_sub_menu_crud" id="field_btn_sub_menu_crud" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_sub_menu_crud']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_sync">
+															<span>Sincronizar:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_sync" id="field_btn_sync" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_sync']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3">
+													<div class="form-group">
+														<label for="field_btn_visible">
+															<span>Visible:</span>
+														</label>
+														<div class="input-group input-group-sm">
+															<select name="field_btn_visible" id="field_btn_visible" class="form-control" required="">
+																<option value="0">Seleccionar</option>
+																<?php if (false != $df_sql_select_tc_azp_configuration_button): ?>
+																	<?php foreach ($df_sql_select_tc_azp_configuration_button as $key): ?>
+																		<?php if ($key[d_azp_configuration_button_id_azp_configuration_button] == $df_sql_controller_update['lbl_azp_configuration_design_t_btn_visible']): ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>" selected>
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php else: ?>
+																			<option value="<?= $key[d_azp_configuration_button_id_azp_configuration_button]; ?>">
+																				<?= $key[d_azp_configuration_button_t_name]; ?>
+																			</option>
+																		<?php endif ?>
+																	<?php endforeach; ?>
+																<?php else: ?>
+																	<option value="0">No existen resultados</option>
+																<?php endif; ?>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="data_table" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_setting_table">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_setting_table">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Tablas</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_setting_table"></div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_table_by_create">
+													<span>Creado Por:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_table_by_create" id="field_table_by_create" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_table): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_table as $key): ?>
+																<?php if ($key[d_azp_configuration_table_id_azp_configuration_table] == $df_sql_controller_update['lbl_azp_configuration_design_t_table_by_create']): ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>" selected>
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>">
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_table_change">
+													<span>Cambios:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_table_change" id="field_table_change" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_table): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_table as $key): ?>
+																<?php if ($key[d_azp_configuration_table_id_azp_configuration_table] == $df_sql_controller_update['lbl_azp_configuration_design_t_table_change']): ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>" selected>
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>">
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_table_detail">
+													<span>Detalles:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_table_detail" id="field_table_detail" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_table): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_table as $key): ?>
+																<?php if ($key[d_azp_configuration_table_id_azp_configuration_table] == $df_sql_controller_update['lbl_azp_configuration_design_t_table_detail']): ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>" selected>
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>">
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_table_eliminate">
+													<span>Eliminados:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_table_eliminate" id="field_table_eliminate" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_table): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_table as $key): ?>
+																<?php if ($key[d_azp_configuration_table_id_azp_configuration_table] == $df_sql_controller_update['lbl_azp_configuration_design_t_table_eliminate']): ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>" selected>
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>">
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_table_read">
+													<span>Registros:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_table_read" id="field_table_read" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_table): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_table as $key): ?>
+																<?php if ($key[d_azp_configuration_table_id_azp_configuration_table] == $df_sql_controller_update['lbl_azp_configuration_design_t_table_read']): ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>" selected>
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>">
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_table_remove">
+													<span>Removidos:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_table_remove" id="field_table_remove" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_table): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_table as $key): ?>
+																<?php if ($key[d_azp_configuration_table_id_azp_configuration_table] == $df_sql_controller_update['lbl_azp_configuration_design_t_table_remove']): ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>" selected>
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>">
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_table_report">
+													<span>Reportes:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_table_report" id="field_table_report" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_configuration_table): ?>
+															<?php foreach ($df_sql_select_tc_azp_configuration_table as $key): ?>
+																<?php if ($key[d_azp_configuration_table_id_azp_configuration_table] == $df_sql_controller_update['lbl_azp_configuration_design_t_table_report']): ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>" selected>
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_configuration_table_id_azp_configuration_table]; ?>">
+																		<?= $key[d_azp_configuration_table_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="data_modal" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_setting_modal">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_setting_modal">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Modales</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_setting_modal"></div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_change">
+													<span>Cambios:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_change" id="field_md_change" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_change']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_create">
+													<span>Nuevo:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_create" id="field_md_create" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_create']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_delete">
+													<span>Eliminar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_delete" id="field_md_delete" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_delete']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_detail">
+													<span>Detalles:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_detail" id="field_md_detail" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_detail']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_email">
+													<span>Correos:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_email" id="field_md_email" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_email']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_import">
+													<span>Importar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_import" id="field_md_import" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_import']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_remove">
+													<span>Remover:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_remove" id="field_md_remove" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_remove']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_report">
+													<span>Reportes:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_report" id="field_md_report" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_report']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_restore">
+													<span>Restaurar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_restore" id="field_md_restore" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_restore']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_sub_menu">
+													<span>Sub Menu:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_sub_menu" id="field_md_sub_menu" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_sub_menu']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_md_update">
+													<span>Actualizar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_md_update" id="field_md_update" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_modal_code): ?>
+															<?php foreach ($df_sql_select_tc_azp_modal_code as $key): ?>
+																<?php if ($key[d_azp_modal_code_id_azp_modal_code] == $df_sql_controller_modal['lbl_azp_configuration_modal_t_md_update']): ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>" selected>
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_modal_code_id_azp_modal_code]; ?>">
+																		<?= $key[d_azp_modal_code_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="data_panel" role="tabpanel">
+								<form class="form-horizontal" role="form" enctype="application/x-www-form-urlencoded" id="form_update_zv_setting_panel">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<div class="form-group">
+												<button type="button" class="btn btn-sm btn-outline-success" id="form_btn_update_zv_setting_panel">
+													<em class="mdi mdi-rotate-3d"></em>
+													<span>Actualizar Paneles</span>
+												</button>
+											</div>
+											<div class="hide" id="form_ajax_zv_setting_panel"></div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_change">
+													<span>Cambios:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_change" id="field_pnl_change" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_change']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_create">
+													<span>Nuevo:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_create" id="field_pnl_create" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_create']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_delete">
+													<span>Eliminar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_delete" id="field_pnl_delete" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_delete']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_detail">
+													<span>Detalles:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_detail" id="field_pnl_detail" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_detail']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_email">
+													<span>Correos:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_email" id="field_pnl_email" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_email']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_import">
+													<span>Importar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_import" id="field_pnl_import" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_import']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_remove">
+													<span>Remover:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_remove" id="field_pnl_remove" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_remove']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_report">
+													<span>Reportes:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_report" id="field_pnl_report" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_report']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_restore">
+													<span>Restaurar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_restore" id="field_pnl_restore" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_restore']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_sub_menu">
+													<span>Sub Menu:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_sub_menu" id="field_pnl_sub_menu" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_sub_menu']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+											<div class="form-group">
+												<label for="field_pnl_update">
+													<span>Actualizar:</span>
+												</label>
+												<div class="input-group input-group-sm">
+													<select name="field_pnl_update" id="field_pnl_update" class="form-control" required="">
+														<option value="0">Seleccionar</option>
+														<?php if (false != $df_sql_select_tc_azp_pallet_color): ?>
+															<?php foreach ($df_sql_select_tc_azp_pallet_color as $key): ?>
+																<?php if ($key[d_azp_pallet_color_id_azp_pallet_color] == $df_sql_controller_panel['lbl_azp_configuration_panel_t_pnl_update']): ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>" selected>
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php else: ?>
+																	<option value="<?= $key[d_azp_pallet_color_id_azp_pallet_color]; ?>">
+																		<?= $key[d_azp_pallet_color_t_name]; ?>
+																	</option>
+																<?php endif ?>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="0">No existen resultados</option>
+														<?php endif; ?>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php $this->insert('backend/design/ds-main/file-end'); ?>

@@ -1,0 +1,114 @@
+------------------------------------------------------------------------------------------------------
+--- Defunciones - Certificados: Roles: Director, Supervisor, Analista, Cliente
+--- Proveedores: Añadir campo de nombre de proveedor: listado
+--- Proveedores: Campos: Identificacion, Telefojo Fijo, Numero Contacto (2), Direccion, Correo, Ciudad
+--- Clientes: Organizar los mismos clientes de defuncion para certificados: cliente, nombres, correos
+--- Solicitudes: Crear - Actualizar: Obligatorios Campos: Placa matricula, ciudad
+--- Solicitudes: Almacenar todos los datos en mayuscula
+--- Solicitudes: Campo: Tipo Observacion: Listado por Constanza
+--- Solicitudes: Cargar archivo de recibo
+--- Solicitudes: Cargar archivo de certificado
+--- Solicitudes: Almacenar Documento: Cedula_Placa.pdf
+--- Solicitudes: Añadir campo para otras observaciones y un boton para guardar o no dicha observacion
+--- Solicitudes: Correos: Remision: Generar alerta para limite de envio de archivos
+--- Solicitudes: Correos: Remision: Asociar contraseña en el documento remision segun el cliente
+--- Solicitudes: Correos: Remision: Ajustar plantilla para el envio de remision
+--- Solicitudes: Correos: Proveedor: Ajustar plantilla para el envio de proveedores
+--- Solicitudes: Correos: Proveedor: Asociar contraseña en el documento bitacora segun el proveedor
+--- Solicitudes: Acciones: Crear: Añadir campo de ciudad como desplegable
+--- Solicitudes: Acciones: Actualizar: Añadir campo de ciudad como desplegable
+--- Solicitudes: Observaciones: Historico de observaciones por cedulas
+--- Solicitudes: Fecha Solicitud Proveedor: Asociar fecha de envio
+--- Solicitudes: Correos Internos: Organizar listado de contactos
+--- Solicitudes: Correos: Añadir campos faltantes para el envio de la solicitud al proveedor
+--- Solicitudes: Mapear codigos de cliente de la plantilla en el modulo clientes
+--- Solicitudes: Fecha Entrega: Opcional y marcar manualmente
+--- Solicitudes: Digitalizar el consecutivo y nombre del archivo
+--- Solicitudes: Ordenar las columnas segun el archivo de excel
+--- Solicitudes: Cambiar el nombre del correo: Respuesta Imagen Certificado
+--- Solicitudes: Importar: Alerta: Buscar por placa de un mes atras e informar cantidad
+--- Solicitudes: Importar: Alerta: Generar archivo de datos con placas identificadas
+--- Solicitudes: Añadir boton para cerrar la fase de entregado a cerrada
+--- Solicitudes: Fecha Recibido Proveedor: Asociar fecha de entrega
+--- Proveedores: Incluir el tipo de proveedor al que pertenece
+------------------------------------------------------------------------------------------------------
+--- Solicitudes: Fases: Por Gestionar: Base cargada al principio
+--- Solicitudes: Fases: En Tramite: Cuando sale el correo del proveedor
+Solicitudes: Fases: Pendiente - Seguimiento: Alguna dificultad: Cuando se solicitan compras de certificados
+--- Solicitudes: Fases: Entregado: Cuando se envia al cliente
+------------------------------------------------------------------------------------------------------
+--- Solicitudes: Alertas: 1 dia habil generar solicitudes pendientes por enviar al proveedor
+--- Solicitudes: Alertas: 5 dias habiles certificados para el proveedor
+------------------------------------------------------------------------------------------------------
+--- Clientes: Persona principal: Nombre solicitante
+--- Clientes: Permitir almacenar varios solicitante de un solo cliente
+--- Solicitudes: Proveedor: Mapear: Valor servicio en el modulo capturas
+--- Solicitudes: Proveedor: Mapear: Fecha Imagen en el modulo capturas
+--- Solicitudes: Correos Remision: Legible: Enviar
+--- Solicitudes: Correos Remision: Volver a Escanear: No dejar enviar
+--- Solicitudes: Correos Remision: Añadir automaticamente el tipo de certificado
+--- Solicitudes: Alerta de si falta un certificado antes de enviar
+--- Correo: Cambiar nombre fecha entrega por entrega fisico
+--- Cambiar nombre de la fase de entregado a entrega digital
+--- Solicitudes: Correos: Incluir listado de nombre de proveedores
+Solicitudes: Correos: Remision: Opcion para enviar enviar en pdfs o comprimido
+Solicitudes: Cliente: Mostrar informes de porcentajes
+Solicitudes: 1 solo recibo para 10 de registros de inmuebles
+Capturas: Valor Servicio: Campo editable desde la interfaz
+Capturas: Valor Reintegro: Manual desde la interfaz
+Clientes: Añadir campo de envio
+------------------------------------------------------------------------------------------------------
+--- Correo Electronico: Sistema: Cliente: Cargue de formato al sistema
+--- Correo Electronico: Sistema: Bitacora: Consolidado de todos tipos de certificados
+--- Correo Electronico: Envios: Remision Cliente: Imagenes de Comercio
+--- Correo Electronico: Envios: Proveedor Consultas: Solicitud Certificados
+--- Correo Electronico: Proveedor: Modelo respuesta: Cargue de formato al sistema
+--- Correo Electronico: Proveedor: Certificados por cedula
+--- Correo Electronico: Proveedor: Recibos por cedula
+------------------------------------------------------------------------------------------------------
+Dashboard: Reportes: Añadir campo de Tipo Certificado
+
+--- Cliente: Marcado como si o no
+--- Dashboard: Fases: Ajustar la fecha de solicitud en el reporte
+--- Solicitudes: Añadir descargables de las alertas
+Roles: Validar el rol cliente
+Excel: Ajustar la remision para el texto
+
+Dashboard: Bitacora: Ajustar la fecha del mes en el reporte para firefox
+--- Añadir fase en gsc y dejar nivel 1
+--- Eliminar columna cliente de alerta principal
+--- Eliminar columna cliente de alerta copia
+
+
+
+
+
+
+Certificados
+
+
+
+Validar carga de datos en sago con x cliente
+
+1. De la G a la K, no debe ir en la solicitud proveedor
+2. Validar datos de vinculacion de excel con aplicativo segun campos
+3. Modulo clientes copias: añadir direccion ciudad
+4. Añadir en el archivo de remision esos datos
+5. Añadir en el archivo de bitacora, columna de tipo de certificado
+
+
+
+
+
+
+
+
+Defuncion
+
+1. Desde la columna E hasta la I, debe ir en blanco
+2. Terceros: No obligatorios: Contraseña, Telefojo Fijo, Telefono Movil
+3. Permitir guardar observaciones internas por uno o varios registros
+4. Quitar desvinculacion del campo ciudad con el de registraduria
+
+Registraduria: Campo ciudad es la expedicion de la
+

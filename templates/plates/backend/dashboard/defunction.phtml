@@ -1,0 +1,1845 @@
+<?php $this->insert('backend/design/ds-main/file-start'); ?>
+
+	<?php if ($var_permits_rols == 6): ?>
+		<?php header('location: ' . URL . 'dashboard/gscclient/'); ?>
+	<?php endif; ?>
+	
+	<?php if ($var_permits_rols != 6): ?>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+				<div id="panel-1" class="panel">
+					<div class="panel-hdr bg-dark text-white">
+						<h2 class="text-white">
+							<span class="icon-stack fs-xxl mr-2">
+								<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+								<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+								<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+							</span>
+							<span>Dashboard</span>
+						</h2>
+					</div>
+					<div class="panel-container show">
+						<div class="panel-content">
+							<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+								<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Reportes Fases"
+								data-content="Informacion de los datos almancenados del registro en la base de datos.">
+									<a class="nav-link active p-3" data-toggle="tab" href="#tab-justified-dt-1" role="tab">
+										<i class="far fa-table text-success"></i>
+										<span class="hidden-sm-down ml-1">Reportes Fases</span>
+									</a>
+								</li>
+								<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Reportes Diarios"
+								data-content="Informacion de los datos almancenados del registro en la base de datos.">
+									<a class="nav-link p-3" data-toggle="tab" href="#tab-justified-dt-2" role="tab">
+										<i class="far fa-table text-success"></i>
+										<span class="hidden-sm-down ml-1">Reportes Diarios</span>
+									</a>
+								</li>
+								<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Reportes Seguimientos"
+								data-content="Informacion de los datos almancenados del registro en la base de datos.">
+									<a class="nav-link p-3" data-toggle="tab" href="#tab-justified-dt-3" role="tab">
+										<i class="far fa-table text-success"></i>
+										<span class="hidden-sm-down ml-1">Reportes Seguimientos</span>
+									</a>
+								</li>
+								<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Trazabilidad Solicitudes"
+								data-content="Informacion de los datos almancenados del registro en la base de datos.">
+									<a class="nav-link p-3" data-toggle="tab" href="#tab-justified-dt-4" role="tab">
+										<i class="far fa-table text-success"></i>
+										<span class="hidden-sm-down ml-1">Trazabilidad Solicitudes</span>
+									</a>
+								</li>
+							</ul>
+							<div class="tab-content pt-4">
+								<div class="tab-pane fade show active" id="tab-justified-dt-1" role="tabpanel">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+											<div id="panel-1" class="panel">
+												<div class="panel-hdr bg-dark text-white">
+													<h2 class="text-white">
+														<span class="icon-stack fs-xxl mr-2">
+															<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+															<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+															<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+														</span>
+														<span>Datos: Fases</span>
+													</h2>
+													<div class="panel-toolbar">
+														<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+														<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+													</div>
+												</div>
+												<div class="panel-container show">
+													<div class="panel-content">
+														<div class="table-responsive">
+															<table id="dt_report_gsc_phase" class="text-center table table-bordered table-sm table-hover table-striped w-100" cellspacing="0" width="100%">
+																<thead class="table-success"></thead>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="row">
+												<div class="col-xl-6">
+													<div id="panel-8" class="panel">
+														<div class="panel-hdr bg-dark text-white">
+															<h2>
+																<span class="icon-stack fs-xxl mr-2">
+																	<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+																	<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+																	<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+																</span>
+																<span>Grafico: Clientes</span>
+															</h2>
+															<div class="panel-toolbar">
+																<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+															</div>
+														</div>
+														<div class="panel-container show">
+															<div class="panel-content">
+																<div class="panel-tag">
+																	El siguiente grafico de barras proporciona y muestra valores de datos representados en barras verticales sobre la agrupacion de los clientes en la base de datos.
+																</div>
+																<div id="barChart">
+																	<canvas style="width:100%; height:300px;"></canvas>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+											<div class="row">
+												<div class="col-xl-6">
+													<div id="panel-12" class="panel">
+														<div class="panel-hdr bg-dark text-white">
+															<h2>
+																<span class="icon-stack fs-xxl mr-2">
+																	<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+																	<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+																	<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+																</span>
+																<span>Grafico: Fases</span>
+															</h2>
+															<div class="panel-toolbar">
+																<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+															</div>
+														</div>
+														<div class="panel-container show">
+															<div class="panel-content">
+																<div class="panel-tag">
+																	El siguiente grafico circular proporciona y muestra valores de datos representados en anillo o circular sobre la agrupacion de las fases de las solicitudes en la base de datos.
+																</div>
+																<div id="doughnutChart">
+																	<canvas style="width:100%; height:300px;"></canvas>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="tab-justified-dt-2" role="tabpanel">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+											<form class="form-horizontal needs-validation was-validated" novalidate="" role="form" enctype="application/x-www-form-urlencoded" id="form_zv_register_daily">
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+														<div class="hide" id="form_ajax_zv_register_daily"></div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_rd_date_sice" class="form-label">
+																<span>Fecha Desde:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_rd_date_sice" id="field_rd_date_sice" class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_rd_date_until" class="form-label">
+																<span>Fecha Hasta:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_rd_date_until" id="field_rd_date_until" class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 col-xl-6 mb-3">
+														<div class="form-group">
+															<label for="form_btn_event_refresh_table" class="form-label">
+																<span>Accion:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<button type="button" onclick="event_refresh_table();"
+																id="form_btn_event_refresh_table" name="form_btn_event_refresh_table"
+																class="btn btn-sm waves-effect waves-light btn-outline-dark">
+																	<em class="far fa-blinds"></em>
+																	<span class="hidden-md-down">Consultar</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="d-none col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3" id="div_jtf_dt_2">
+											<div class="table-responsive">
+												<table id="dt_report_daily" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap" cellspacing="0" width="100%">
+													<thead class="" id="tab_jtf_dt_2"></thead>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="tab-justified-dt-3" role="tabpanel">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+											<form class="form-horizontal needs-validation was-validated" novalidate="" role="form" enctype="application/x-www-form-urlencoded" id="form_zv_register_full">
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+														<div class="hide" id="form_ajax_zv_register_full"></div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_rf_date_sice" class="form-label">
+																<span>Fecha Desde:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_rf_date_sice" id="field_rf_date_sice" class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_rf_date_until" class="form-label">
+																<span>Fecha Hasta:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_rf_date_until" id="field_rf_date_until" class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label class="form-label">
+																<span>Accion:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<div class="btn-group" role="group">
+																	<div class="input-group-append mr-1">
+																		<button type="button" onclick="zv_gsc_request();"
+																		id="form_btn_zv_gsc_request" name="form_btn_zv_gsc_request"
+																		class="btn btn-sm waves-effect waves-light btn-outline-dark btn-block">
+																			<em class="far fa-blinds"></em>
+																			<!--<span class="hidden-md-down">Solicitudes</span>-->
+																			<span class="hidden-md-down">Detallado</span>
+																		</button>
+																	</div>
+																	<div class="input-group-append mr-1">
+																		<button type="button" onclick="zv_register_full();" 
+																		id="form_btn_zv_register_full" name="form_btn_zv_register_full"
+																		class="btn btn-sm waves-effect waves-light btn-outline-dark btn-block">
+																			<em class="far fa-landmark"></em>
+																			<!--<span class="hidden-md-down">Clientes</span>-->
+																			<span class="hidden-md-down">Consolidado</span>
+																		</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="d-none col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 mb-3" id="div_rf_filter">
+														<div class="form-group">
+															<label for="field_rf_filter" class="form-label">
+																<span>Filtrar:</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<select name="field_rf_filter" id="field_rf_filter" class="custom-select form-control" required="" onchange="filter_register_full();">
+																	<option value="">Seleccionar</option>
+																	<option value="1">Activa</option>
+																	<option value="2">Cerrada</option>
+																	<option value="3">Todo</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="d-none col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3" id="div_jtf_4_request">
+											<div class="table-responsive">
+												<table id="dt_report_request" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap" cellspacing="0" width="100%">
+													<thead class="table-danger"></thead>
+												</table>
+											</div>
+										</div>
+										<div class="d-none col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3" id="div_jtf_4_full">
+											<div class="table-responsive">
+												<table id="dt_report_full" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap" cellspacing="0" width="100%">
+													<thead class="table-success"></thead>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="tab-justified-dt-4" role="tabpanel">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+											<form class="form-horizontal needs-validation was-validated" novalidate="" role="form" enctype="application/x-www-form-urlencoded" id="form_zv_gsc_follow_email">
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+														<div class="hide" id="form_ajax_zv_gsc_follow_email"></div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_fm_date_since" class="form-label">
+																<span>Fecha Solicitudes Desde:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_fm_date_since" id="field_fm_date_since" class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-3">
+														<div class="form-group">
+															<label for="field_fm_date_until" class="form-label">
+																<span>Fecha Solicitudes Hasta:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<input type="date" name="field_fm_date_until" id="field_fm_date_until" class="form-control" placeholder="Digita el texto ..." required="">
+																<div class="invalid-feedback">
+																	<span>Digita un valor en el campo.</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 col-xl-6 mb-3">
+														<div class="form-group">
+															<label for="form_btn_zv_gsc_follow_email" class="form-label">
+																<span>Accion:</span>
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group input-group-sm">
+																<div class="btn-group" role="group">
+																	<div class="input-group-append mr-1">
+																		<button type="button" onclick="zv_gsc_follow_email();"
+																		id="form_btn_zv_gsc_follow_email" name="form_btn_zv_gsc_follow_email"
+																		class="btn btn-sm waves-effect waves-light btn-outline-dark">
+																			<em class="far fa-blinds"></em>
+																			<span class="hidden-md-down">Consultar</span>
+																		</button>
+																	</div>
+																	<div class="input-group-append mr-1">
+																		<button type="button" onclick="zv_gsc_plan_action();"
+																		id="form_btn_zv_gsc_plan_action" name="form_btn_zv_gsc_plan_action"
+																		class="btn btn-sm waves-effect waves-light btn-outline-dark">
+																			<em class="far fa-blinds"></em>
+																			<span class="hidden-md-down">Plan Accion</span>
+																		</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="d-none col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3" id="div_jtf_dt_4">
+											<div class="form-group">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" name="field_fm_checkbox_all_read" id="field_fm_checkbox_all_read" class="custom-control-input" onclick="fm_action_checkbox_all_read();">
+													<label class="custom-control-label" for="field_fm_checkbox_all_read">Seleccionar Todo</label>
+												</div>
+											</div>
+											<div class="table-responsive">
+												<table id="dt_report_follow_email" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap" cellspacing="0" width="100%">
+													<thead class="table-success"></thead>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+
+	<?php if ($var_permits_rols == 6): ?>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+				<ul class="nav nav-tabs border-bottom-0 nav-tabs-clean" role="tablist">
+					<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Reportes Graficos"
+					data-content="Informacion de los datos almancenados del registro en la base de datos.">
+						<a class="nav-link active p-3" data-toggle="tab" href="#tab-justified-dt-1" role="tab">
+							<i class="far fa-table text-success"></i>
+							<span class="hidden-sm-down ml-1">Reportes Graficos</span>
+						</a>
+					</li>
+					<li class="nav-item" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-original-title="Reporte Avances"
+					data-content="Informacion de los datos almancenados del registro en la base de datos.">
+						<a class="nav-link p-3" data-toggle="tab" href="#tab-justified-dt-2" role="tab">
+							<i class="far fa-table text-success"></i>
+							<span class="hidden-sm-down ml-1">Reporte Avances</span>
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content pt-4">
+					<div class="tab-pane fade show active" id="tab-justified-dt-1" role="tabpanel">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<div id="panel-1" class="panel">
+									<div class="panel-hdr bg-dark text-white">
+										<h2 class="text-white">
+											<span class="icon-stack fs-xxl mr-2">
+												<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+												<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+												<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+											</span>
+											<span>Dashboard</span>
+										</h2>
+									</div>
+									<div class="panel-container show">
+										<div class="panel-content">
+											<div class="row">
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+													<div class="row">
+														<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3 d-none">
+															<div class="form-group">
+																<label for="state_request" class="form-label">
+																	<span>Cliente:</span>
+																	<span class="text-danger">*</span>
+																</label>
+																<div class="input-group input-group-sm">
+																	<select name="state_request" id="state_request" class="custom-select form-control border-success" required="">
+																		<option value="">Seleccionar</option>
+																		<?php if (false != $df_tc_gsc_request_ultime_base): ?>
+																			<?php foreach ($df_tc_gsc_request_ultime_base as $key): ?>
+																				<?= $var_control =  $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>
+																				<option value="<?= $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>" selected="">
+																					<?= $key['lbl_azp_gsc_request_t_number_request']; ?>
+																				</option>
+																			<?php endforeach; ?>
+																		<?php else: ?>
+																			<option value="">No existen resultados</option>
+																		<?php endif; ?>
+																	</select>
+																	<div class="invalid-feedback">
+																		<span>Seleciona un valor para el campo.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3">
+															<div class="form-group">
+																<label for="state_since" class="form-label">
+																	<span>Fecha Desde:</span>
+																	<span class="text-danger">*</span>
+																</label>
+																<div class="input-group input-group-sm">
+																	<input type="date" name="state_since" id="state_since" class="form-control border-success" placeholder="Digita el texto ..." required="">
+																	<div class="invalid-feedback">
+																		<span>Digita un valor en el campo.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-3">
+															<div class="form-group">
+																<label for="state_until" class="form-label">
+																	<span>Fecha Hasta:</span>
+																	<span class="text-danger">*</span>
+																</label>
+																<div class="input-group input-group-sm">
+																	<input type="date" name="state_until" id="state_until" class="form-control border-success" placeholder="Digita el texto ..." required="">
+																	<div class="input-group-append">
+																		<button type="button" class="btn btn-sm btn-outline-dark btn-block" onclick="event_gsc_graphic_state(); event_gsc_graphic_reset();">
+																			<em class="far fa-file"></em>
+																			<span>Filtrar</span>
+																		</button>
+																	</div>
+																	<div class="invalid-feedback">
+																		<span>Digita un valor en el campo.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+															<div class="form-group">
+																<label for="state_base" class="form-label">
+																	<span>Base:</span>
+																	<span class="text-danger">*</span>
+																</label>
+																<div class="input-group input-group-sm">
+																	<select name="state_base" id="state_base"
+																	class="custom-select form-control border-success" required="">
+																		<option value="">Seleccionar</option>
+																		<?php if (false != $df_tc_gsc_request_code): ?>
+																			<?php foreach ($df_tc_gsc_request_code as $key): ?>
+																				<?= $var_control =  $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>
+																				<option value="<?= $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>">
+																					<?= $key['lbl_azp_gsc_request_t_number_request']; ?>
+																				</option>
+																			<?php endforeach; ?>
+																		<?php else: ?>
+																			<option value="">No existen resultados</option>
+																		<?php endif; ?>
+																	</select>
+																	<div class="input-group-append">
+																		<button type="button" class="btn btn-sm btn-outline-dark btn-block" onclick="event_gsc_graphic_state(); event_gsc_graphic_reset();">
+																			<em class="far fa-file"></em>
+																			<span>Consultar</span>
+																		</button>
+																	</div>
+																	<div class="invalid-feedback">
+																		<span>Seleciona un valor para el campo.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+															<div id="panel-6" class="panel">
+																<div class="panel-hdr bg-dark text-white">
+																	<h2>Base Estados</h2>
+																	<div class="panel-toolbar">
+																		<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																		<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																		<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+																	</div>
+																</div>
+																<div class="panel-container show">
+																	<div class="panel-content">
+																		<div id="gsc_graphic_state">
+																			<canvas style="width:100%; height:300px;"></canvas>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!--<div class="col-xl-6">
+															<div id="panel-1" class="panel">
+																<div class="panel-hdr bg-dark text-white">
+																	<h2>
+																		<span class="icon-stack fs-xxl mr-2">
+																			<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+																			<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+																			<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+																		</span>
+																		<span>Grafico: Estados</span>
+																	</h2>
+																	<div class="panel-toolbar">
+																		<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																		<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																	</div>
+																</div>
+																<div class="panel-container show">
+																	<div class="panel-content">
+																		<div class="panel-tag">
+																			El siguiente grafico de barras proporciona y muestra valores de datos representados en barras verticales sobre la agrupacion de los clientes en la base de datos.
+																		</div>
+																		<div class="row">
+																			
+																		</div>
+
+
+																		<div id="gsc_graphic_state">
+																			<canvas style="width:100%; height:300px;"></canvas>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>-->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="tab-justified-dt-2" role="tabpanel">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<div id="panel-1" class="panel">
+									<div class="panel-hdr bg-dark text-white">
+										<h2 class="text-white">
+											<span class="icon-stack fs-xxl mr-2">
+												<i class="base base-7 icon-stack-3x opacity-100 color-primary-500"></i>
+												<i class="base base-7 icon-stack-2x opacity-100 color-primary-300"></i>
+												<i class="far fa-chart-bar icon-stack-1x opacity-100 fa-spin"></i>
+											</span>
+											<span>Dashboard</span>
+										</h2>
+									</div>
+									<div class="panel-container show">
+										<div class="panel-content">
+											<div class="row">
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+													<div class="row">
+														<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3 d-none">
+															<div class="form-group">
+																<label for="causal_client" class="form-label">
+																	<span>Cliente:</span>
+																	<span class="text-danger">*</span>
+																</label>
+																<div class="input-group input-group-sm">
+																	<select name="causal_client" id="causal_client" class="custom-select form-control border-success" required="">
+																		<option value="">Seleccionar</option>
+																		<?php if (false != $df_tc_gsc_request_ultime_causal): ?>
+																			<?php foreach ($df_tc_gsc_request_ultime_causal as $key): ?>
+																				<?= $var_control =  $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>
+																				<option value="<?= $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>" selected="">
+																					<?= $key['lbl_azp_gsc_request_t_number_request']; ?>
+																				</option>
+																			<?php endforeach; ?>
+																		<?php else: ?>
+																			<option value="">No existen resultados</option>
+																		<?php endif; ?>
+																	</select>
+																	<div class="invalid-feedback">
+																		<span>Seleciona un valor para el campo.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+															<div class="form-group">
+																<label for="causal_base" class="form-label">
+																	<span>Base:</span>
+																	<span class="text-danger">*</span>
+																</label>
+																<div class="input-group input-group-sm">
+																	<select name="causal_base" id="causal_base"
+																	class="custom-select form-control border-success" required="">
+																		<option value="">Seleccionar</option>
+																		<?php if (false != $df_tc_gsc_request_causal): ?>
+																			<?php foreach ($df_tc_gsc_request_causal as $key): ?>
+																				<?= $var_control =  $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>
+																				<option value="<?= $key['lbl_azp_gsc_request_id_azp_gsc_request']; ?>">
+																					<?= $key['lbl_azp_gsc_request_t_number_request']; ?>
+																				</option>
+																			<?php endforeach; ?>
+																		<?php else: ?>
+																			<option value="">No existen resultados</option>
+																		<?php endif; ?>
+																	</select>
+																	<div class="input-group-append">
+																		<button type="button" class="btn btn-sm btn-outline-dark btn-block"
+																		onclick="
+																			event_gsc_default_causal_s();
+																			event_gsc_default_causal_i();
+																			event_gsc_graphic_causal_d();
+																			event_gsc_graphic_causal_r();
+																		">
+																			<em class="far fa-file"></em>
+																			<span>Consultar</span>
+																		</button>
+																	</div>
+																	<div class="input-group-append">
+																		<button type="button" class="btn btn-sm btn-outline-danger btn-block"
+																		onclick="event_gsc_graphic_causal_t();">
+																			<em class="far fa-trash-alt"></em>
+																			<span>Limpiar</span>
+																		</button>
+																	</div>
+																	<div class="invalid-feedback">
+																		<span>Seleciona un valor para el campo.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+															<div id="panel-6" class="panel">
+																<div class="panel-hdr bg-dark text-white">
+																	<h2>Reporte Detallado</h2>
+																	<div class="panel-toolbar">
+																		<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																		<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																		<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+																	</div>
+																</div>
+																<div class="panel-container show">
+																	<div class="panel-content">
+																		<div class="table-responsive">
+																			<table id="dt_causal_s" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap tb_causal_state" cellspacing="0" width="100%">
+																				<thead class="table-success"></thead>
+																			</table>
+																		</div>
+																		<div class="table-responsive">
+																			<table id="dt_causal_i" class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap tb_causal_individual" cellspacing="0" width="100%">
+																				<thead class="table-success"></thead>
+																			</table>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+															<div id="panel-6" class="panel">
+																<div class="panel-hdr bg-dark text-white">
+																	<h2>Base Estados</h2>
+																	<div class="panel-toolbar">
+																		<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+																		<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+																		<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+																	</div>
+																</div>
+																<div class="panel-container show">
+																	<div class="panel-content">
+																		<div id="hig_gsc_causal">
+																			<canvas style="width:100%; height:300px;"></canvas>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+
+	<form class="form-horizontal needs-validation was-validated" novalidate="" role="form" enctype="application/x-www-form-urlencoded" id="form_pl_observation">
+		<div tabindex="-1" role="dialog" aria-hidden="true" id="modal-id-plan_action"
+		data-keyboard="false" data-backdrop="static" aria-labelledby="myCenterModalLabel" style="display: none;"
+		class="modal fade modal-div-plan_action">
+			<div class="modal-dialog modal-dialog-scrollable modal-sm modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header bg-dark text-white">
+						<h5 class="modal-title text-white text-center">Plan Accion</h5>
+						<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true"><i class="far fa-times"></i></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<div class="hide" id="form_ajax_pl_observation"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+								<div class="form-group">
+									<label for="field_pl_observation" class="form-label">
+										<span>Plan Accion:</span>
+									</label>
+									<div class="input-group input-group-sm">
+										<textarea name="field_pl_observation" id="field_pl_observation" class="form-control" placeholder="Digita el texto ..." rows="5" required=""></textarea>
+										<div class="invalid-feedback">
+											<span>Digita un valor en el campo.</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="form_btn_pl_observation" onclick="event_pl_observation();"
+						class="btn btn-sm waves-effect waves-light btn-outline-success">
+							<em class="far fa-plus"></em>
+							<span>Añadir</span>
+						</button>
+						<button type="button" class="btn btn-sm waves-effect waves-light btn-outline-info" data-dismiss="modal">
+							<em class="far fa-times-circle"></em>
+							<span>Cancelar</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div tabindex="-1" role="dialog" aria-hidden="true" id="modal-id-fm_detail"
+	data-keyboard="false" data-backdrop="static" aria-labelledby="myCenterModalLabel" style="display: none;"
+	class="modal fade modal-fullscreen modal-div-fm_detail">
+		<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header bg-dark text-white">
+					<h5 class="modal-title text-white">Detalles Del Registro</h5>
+					<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true"><i class="far fa-times"></i></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="table-responsive">
+						<table class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap">
+							<thead class="table-success">
+								<tr>
+									<th>Definicion</th>
+									<th>Resultado</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Observacion Interna:</td>
+									<td id="lbl_azp_report_gsc_follow_email_t_observation_internal"></td>
+								</tr>
+								<tr>
+									<td>Plan Accion:</td>
+									<td id="lbl_azp_report_gsc_follow_email_t_plan_action"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-sm waves-effect waves-light btn-outline-info" data-dismiss="modal">
+						<em class="far fa-times-circle"></em>
+						<span>Cerrar</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div tabindex="-1" role="dialog" aria-hidden="true" id="modal-id-fm_filter"
+	data-keyboard="false" data-backdrop="static" aria-labelledby="myCenterModalLabel" style="display: none;"
+	class="modal fade modal-div-fm_filter">
+		<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm">
+			<div class="modal-content">
+				<div class="modal-header bg-dark text-white">
+					<h5 class="modal-title text-white text-center">Filtrar Columnas</h5>
+					<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true"><i class="far fa-times"></i></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<div class="table-responsive">
+								<table class="text-center table table-bordered table-sm table-hover table-striped w-100 nowrap" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											<th>Columnas</th>
+											<th class="d-none">Regex</th>
+											<th class="d-none">Inteligente</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr id="filter_col2" data-column="2">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col2_filter" placeholder="Numero Solicitud">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col2_regex" checked="">
+													<label class="custom-control-label" for="col2_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col2_smart" checked="">
+													<label class="custom-control-label" for="col2_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col3" data-column="3">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col3_filter" placeholder="Cliente">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col3_regex" checked="">
+													<label class="custom-control-label" for="col3_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col3_smart" checked="">
+													<label class="custom-control-label" for="col3_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col4" data-column="4">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col4_filter" placeholder="Fecha Solicitud">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col4_regex" checked="">
+													<label class="custom-control-label" for="col4_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col4_smart" checked="">
+													<label class="custom-control-label" for="col4_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col5" data-column="5">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col5_filter" placeholder="Cedula">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col5_regex" checked="">
+													<label class="custom-control-label" for="col5_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col5_smart" checked="">
+													<label class="custom-control-label" for="col5_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col6" data-column="6">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col6_filter" placeholder="Nombre Completo">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col6_regex" checked="">
+													<label class="custom-control-label" for="col6_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col6_smart" checked="">
+													<label class="custom-control-label" for="col6_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col7" data-column="7">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col7_filter" placeholder="Serial">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col7_regex" checked="">
+													<label class="custom-control-label" for="col7_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col7_smart" checked="">
+													<label class="custom-control-label" for="col7_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col8" data-column="8">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col8_filter" placeholder="Notaria">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col8_regex" checked="">
+													<label class="custom-control-label" for="col8_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col8_smart" checked="">
+													<label class="custom-control-label" for="col8_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col9" data-column="9">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col9_filter" placeholder="Ciudad">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col9_regex" checked="">
+													<label class="custom-control-label" for="col9_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col9_smart" checked="">
+													<label class="custom-control-label" for="col9_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<!--<tr id="filter_col10" data-column="10">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col10_filter" placeholder="Fecha Defuncion">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col10_regex" checked="">
+													<label class="custom-control-label" for="col10_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col10_smart" checked="">
+													<label class="custom-control-label" for="col10_smart"></label>
+												</div>
+											</td>
+										</tr>-->
+										<tr id="filter_col11" data-column="11">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col11_filter" placeholder="Observaciones">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col11_regex" checked="">
+													<label class="custom-control-label" for="col11_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col11_smart" checked="">
+													<label class="custom-control-label" for="col11_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col12" data-column="12">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col12_filter" placeholder="Estado">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col12_regex" checked="">
+													<label class="custom-control-label" for="col12_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col12_smart" checked="">
+													<label class="custom-control-label" for="col12_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col13" data-column="13">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col13_filter" placeholder="Causal">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col13_regex" checked="">
+													<label class="custom-control-label" for="col13_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col13_smart" checked="">
+													<label class="custom-control-label" for="col13_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col14" data-column="14">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col14_filter" placeholder="# Correos Existencia">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col14_regex" checked="">
+													<label class="custom-control-label" for="col14_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col14_smart" checked="">
+													<label class="custom-control-label" for="col14_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<tr id="filter_col15" data-column="15">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col15_filter" placeholder="# Correos Expedicion">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col15_regex" checked="">
+													<label class="custom-control-label" for="col15_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col15_smart" checked="">
+													<label class="custom-control-label" for="col15_smart"></label>
+												</div>
+											</td>
+										</tr>
+										<!--<tr id="filter_col16" data-column="16">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col16_filter" placeholder="Ultima Fecha Gestion">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col16_regex" checked="">
+													<label class="custom-control-label" for="col16_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col16_smart" checked="">
+													<label class="custom-control-label" for="col16_smart"></label>
+												</div>
+											</td>
+										</tr>-->
+										<tr id="filter_col17" data-column="17">
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control column_filter" id="col17_filter" placeholder="Plan Accion">
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col17_regex" checked="">
+													<label class="custom-control-label" for="col17_regex"></label>
+												</div>
+											</td>
+											<td class="d-none">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input column_filter" id="col17_smart" checked="">
+													<label class="custom-control-label" for="col17_smart"></label>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-sm waves-effect waves-light btn-outline-info" data-dismiss="modal">
+						<em class="far fa-times-circle"></em>
+						<span>Cerrar</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php $this->insert('backend/design/ds-main/file-end'); ?>
+
+<script type="text/javascript">
+	$('input.column_filter').on('keyup click', function () {
+		event_fm_filter_column($(this).parents('tr').attr('data-column'));
+	});
+
+	function event_fm_filter_column(i) {
+		var smart = $('#col' + i + '_smart').prop('checked');
+
+		if (smart == false) {
+			$('#col' + i + '_filter').value = '';
+			$('#col' + i + '_filter').attr('disabled','');
+		} else if (smart == true) {
+			$('#col' + i + '_filter').value = '';
+			$('#col' + i + '_filter').removeAttr('disabled','');
+		}
+
+		$('#dt_report_follow_email').DataTable().column(i).search(
+			$('#col' + i + '_filter').val(),
+			$('#col' + i + '_regex').prop('checked'),
+			$('#col' + i + '_smart').prop('checked'),
+		).draw();
+	}
+
+	var columnSet = [
+		{
+			title: "Registro",
+			id: "lbl_azp_gsc_phase_id_azp_gsc_phase",
+			data: "lbl_azp_gsc_phase_id_azp_gsc_phase",
+			type: "text",
+			className: "text-dark",
+			"visible": false,
+		},
+		{
+			title: "Fase",
+			id: "lbl_azp_gsc_phase_t_name",
+			data: "lbl_azp_gsc_phase_t_name",
+			type: "text",
+			className: "text-dark",
+		},
+		{
+			title: "Cantidad",
+			id: "lbl_azp_gsc_phase_t_count",
+			data: "lbl_azp_gsc_phase_t_count",
+			type: "text",
+			className: "text-dark",
+		},
+	];
+	/* start data table */
+	var myTable = $('#dt_report_gsc_phase').dataTable({
+		// Reinicialiar los datos de la tabla
+		destroy: true,
+		// Estructura de las columnas para el DOOM
+		dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+			+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+				+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+			+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+			+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+		// Leer datos de prácticamente cualquier fuente de datos JSON
+		ajax: var_url + "dashboard/reportgscstate/",
+		// Cargar columnas del encabezado
+		columns: columnSet,
+		// Opciones para crear, editar, borrar y sincronizar
+		altEditor: true,
+		// Combinar valores en las demas celdas
+		//autoFill: true,
+		// Control de funciones Manejo inteligente del ancho de columna
+		autoWidth: true,
+		// Movilizar columnas en la tabla
+		colReorder: true,
+		// Creará todos los elementos HTML necesarios por adelantado
+		deferRender: true,
+		// Fijar columnas en la tabla
+		//fixedColumns: true,
+		// Fijar columnas en la parte superior de la tabla
+		fixedHeader: true,
+		// Mostrar entradas de los registros
+		info: true,
+		// Focalizar una celda de la tabla
+		//keys: true,
+		// Cambiar numero de registros por pagina
+		lengthChange: true,
+		// Definir cantidad de registros por paginacion
+		lengthMenu: [100, 200, 300, 400, 500,],
+		// Ordenar columnas en ascendente o descendente
+		order: [[0, "asc",]],
+		// Controlar si las tablas de datos deben usar celda única superior
+		orderCellsTop: true,
+		// Ordenar segun columna los registros
+		ordering: true,
+		// Paginar registros limitadamente
+		paging: true,
+		// Procesando informacion de registros
+		processing: true,
+		// Control para el tamaño de la tabla de datos
+		//responsive: true,
+		// Agrupar las filas de los registros
+		//rowGroup: true,
+		// Control de busqueda de registros
+		searching: true,
+		// Selccionar varias filas de registro
+		select: 'single',
+		// Procesamiento del lado del servidor
+		//serverSide: true,
+		// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+		//scroller: true,
+		// Control para el desplazamiento medido de arriba abajo
+		//scrollCollapse: true,
+		// Control para el desplazamiento de derecha a izquiera
+		//scrollX: true,
+		// Control para el desplazamiento medido de arriba abajo
+		//scrollY: 325,
+		// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+		//stateSave: true,
+		// Botones que usan clases de bootstrap
+		buttons: [
+			{
+				text: '<i class="far fa-sync"></i>',
+				titleAttr: 'Sincronizar',
+				name: 'refresh',
+				className: 'btn-sm btn-outline-primary',
+				attr: {
+					'id': 'change_btn_sync',
+					'name': 'change_btn_sync',
+				},
+			},
+			{
+				extend: 'copyHtml5',
+				text: '<i class="far fa-copy"></i>',
+				titleAttr: 'Copiar',
+				className: 'btn-sm btn-outline-primary',
+				attr: {
+					'id': 'change_btn_copy',
+					'name': 'change_btn_copy',
+				},
+			},
+			{
+				extend: 'pdfHtml5',
+				text: '<i class="far fa-file-pdf"></i>',
+				titleAttr: 'PDF',
+				className: 'btn-sm btn-outline-danger',
+				attr: {
+					'id': 'change_btn_pdf',
+					'name': 'change_btn_pdf',
+				},
+			},
+			{
+				extend: 'excelHtml5',
+				text: '<i class="far fa-file-excel"></i>',
+				titleAttr: 'Excel',
+				className: 'btn-sm btn-outline-success',
+				attr: {
+					'id': 'change_btn_excel',
+					'name': 'change_btn_excel',
+				},
+			},
+			{
+				extend: 'csvHtml5',
+				text: '<i class="far fa-file-csv"></i>',
+				titleAttr: 'CSV',
+				className: 'btn-sm btn-outline-info',
+				attr: {
+					'id': 'change_btn_csv',
+					'name': 'change_btn_csv',
+				},
+			},
+			{
+				extend: 'print',
+				text: '<i class="far fa-print"></i>',
+				titleAttr: 'Imprimir',
+				className: 'btn-sm btn-outline-dark',
+				attr: {
+					'id': 'change_btn_print',
+					'name': 'change_btn_print',
+				},
+				autoPrint: true,
+			},
+			{
+				columns: [1, 2, 3, 5,],
+				extend: 'columnToggle',
+				text: '<i class="far fa-low-vision"></i>',
+				titleAttr: 'Extender',
+				className: 'd-none btn-sm btn-outline-primary',
+				attr: {
+					'id': 'change_btn_column_toggle',
+					'name': 'change_btn_column_toggle',
+				},
+			},
+			{
+				extend: 'colvisRestore',
+				text: '<i class="far fa-low-vision"></i>',
+				titleAttr: 'Restaurar',
+				className: 'd-none btn-sm btn-outline-success',
+				attr: {
+					'id': 'change_btn_colvis_restore',
+					'name': 'change_btn_colvis_restore',
+				},
+			},
+			{
+				extend: 'colvis',
+				text: '<i class="far fa-low-vision"></i>',
+				titleAttr: 'Visible',
+				className: 'd-none btn-sm btn-outline-dark',
+				attr: {
+					'id': 'change_btn_colvis',
+					'name': 'change_btn_colvis',
+				},
+			},
+			{
+				extend: 'pageLength',
+				text: '<i class="far fa-database"></i>',
+				titleAttr: 'Mostrar',
+				className: 'd-none btn-sm btn-outline-info',
+				attr: {
+					'id': 'change_btn_page_length',
+					'name': 'change_btn_page_length',
+				},
+			},
+		],
+		columnDefs: [
+			{
+				targets: 1,
+				render: function(data, type, full, meta) {
+					var badge = {
+						<?php if (false != $df_gsc_phase_name): ?>
+							<?php foreach ($df_gsc_phase_name as $key_name): ?>
+								"<?= $key_name['lbl_azp_gsc_phase_t_name']; ?>": {
+									'title': '<?= $key_name['lbl_azp_gsc_phase_t_name']; ?>',
+									'class': '<?= $key_name['lbl_azp_pallet_color_t_name']; ?> text-white',
+								},
+							<?php endforeach ?>
+						<?php endif; ?>
+					};
+					if (typeof badge[data] === 'undefined') { return data; }
+					return '<span class="badge ' + badge[data].class + ' badge-pill">' + badge[data].title + '</span>';
+				},
+			},
+		],
+	});
+</script>
+
+<?php if ($var_permits_rols != 6): ?>
+	<script type="text/javascript">
+		var barChart = function() {
+			var barChartData = {
+				labels: [
+					"Clientes",
+				],
+				datasets: [
+					<?php foreach ($df_client_data as $key_data): ?>
+						{
+							label: "<?= $key_data['lbl_azp_gsc_client_t_name']; ?>",
+							backgroundColor: color.success._300,
+							borderColor: color.success._500,
+							borderWidth: 1,
+							data: [
+								<?= $key_data['lbl_azp_gsc_client_t_count']; ?>,
+							],
+						},
+					<?php endforeach; ?>
+				],
+			};
+			var config = {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					legend: {
+						position: 'top',
+					},
+					title: {
+						divsplay: false,
+						text: 'Bar Chart',
+					},
+					scales: {
+						xAxes: [
+							{
+								display: true,
+								scaleLabel:
+								{
+									display: false,
+									labelString: '6 months forecast',
+								},
+								gridLines:
+								{
+									display: true,
+									color: "#f2f2f2",
+								},
+								ticks:
+								{
+									beginAtZero: true,
+									fontSize: 11,
+								},
+							},
+						],
+						yAxes: [
+							{
+								display: true,
+								scaleLabel: {
+									display: false,
+									labelString: 'Profit margin (approx)',
+								},
+								gridLines: {
+									display: true,
+									color: "#f2f2f2",
+								},
+								ticks: {
+									beginAtZero: true,
+									fontSize: 11,
+								},
+							},
+						],
+					},
+				},
+			}
+			new Chart($("#barChart > canvas").get(0).getContext("2d"), config);
+		}
+
+		var doughnutChart = function() {
+			var config = {
+				type: 'doughnut',
+				data: {
+					datasets: [
+						{
+							data: [
+								<?php foreach ($df_phase_data as $key_data): ?>
+									<?= $key_data['lbl_azp_gsc_phase_t_count']; ?>,
+								<?php endforeach; ?>
+							],
+							backgroundColor: [
+								color.success._200,
+								color.success._400,
+								color.primary._50,
+								color.primary._300,
+								color.primary._500,
+							],
+							label: 'My dataset',
+						},
+					],
+					labels: [
+						<?php foreach ($df_phase_label as $key_label): ?>
+							"<?= $key_label['lbl_azp_gsc_phase_t_name']; ?>",
+						<?php endforeach; ?>
+					],
+				},
+				options: {
+					responsive: true,
+					legend: {
+						display: true,
+						position: 'bottom',
+					},
+				},
+			};
+			new Chart($("#doughnutChart > canvas").get(0).getContext("2d"), config);
+		}
+
+		$(document).ready(function() {
+			barChart();
+			doughnutChart();
+		});
+	</script>
+<?php endif; ?>
+
+<?php if ($var_permits_rols == 6): ?>
+	<script type="text/javascript">
+		// Ejecutar funcion
+		event_gsc_default_state();
+		event_gsc_default_causal_s();
+		event_gsc_default_causal_i();
+		event_gsc_graphic_causal_d();
+
+		function event_gsc_default_causal_s() {
+			// Capturar el valor del campo de datos
+			const ft_data = document.getElementById("causal_client").value;
+			// Capturar el valor del campo de datos
+			const ft_causal = document.getElementById("causal_base").value;
+			// Control de validacion de datos
+			if (ft_causal != '') { my_url = ft_causal; } else { my_url = ft_data; }
+			// Column Definitions
+			var columnSet = [
+				{
+					title: "Solicitud",
+					id: "lbl_number",
+					data: "lbl_number",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+				{
+					title: "Estado",
+					id: "lbl_state",
+					data: "lbl_state",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+				{
+					title: "Conteo",
+					id: "lbl_count",
+					data: "lbl_count",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+				{
+					title: "Porcentaje",
+					id: "lbl_percentage",
+					data: "lbl_percentage",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+			];
+			// Inicializar tabla de datos
+			var myTable = $('#dt_causal_s').dataTable({
+				// Reinicialiar los datos de la tabla
+				destroy: true,
+				// Estructura de las columnas para el DOOM
+				dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+					+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+						+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+					+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+					+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+				// Leer datos de prácticamente cualquier fuente de datos JSON
+				ajax: "dashboard/gsccausals/" + my_url + "/",
+				// Cargar columnas del encabezado
+				columns: columnSet,
+				// Opciones para crear, editar, borrar y sincronizar
+				altEditor: true,
+				// Combinar valores en las demas celdas
+				//autoFill: true,
+				// Control de funciones Manejo inteligente del ancho de columna
+				autoWidth: true,
+				// Movilizar columnas en la tabla
+				colReorder: true,
+				// Creará todos los elementos HTML necesarios por adelantado
+				deferRender: true,
+				// Fijar columnas en la tabla
+				//fixedColumns: true,
+				// Fijar columnas en la parte superior de la tabla
+				fixedHeader: true,
+				// Mostrar entradas de los registros
+				info: true,
+				// Focalizar una celda de la tabla
+				//keys: true,
+				// Cambiar numero de registros por pagina
+				lengthChange: false,
+				// Definir cantidad de registros por paginacion
+				lengthMenu: [[100, 200, 300, 400, 500, -1,], [100, 200, 300, 400, 500, 'Todo',]],
+				// Ordenar columnas en ascendente o descendente
+				order: [[0, "asc",]],
+				// Controlar si las tablas de datos deben usar celda única superior
+				orderCellsTop: true,
+				// Ordenar segun columna los registros
+				ordering: true,
+				// Paginar registros limitadamente
+				paging: true,
+				// Procesando informacion de registros
+				processing: true,
+				// Control para el tamaño de la tabla de datos
+				//responsive: true,
+				// Agrupar las filas de los registros
+				//rowGroup: true,
+				// Control de busqueda de registros
+				searching: false,
+				// Selccionar varias filas de registro
+				select: 'single',
+				// Procesamiento del lado del servidor
+				//serverSide: true,
+				// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+				//scroller: true,
+				// Control para el desplazamiento medido de arriba abajo
+				//scrollCollapse: true,
+				// Control para el desplazamiento de derecha a izquiera
+				//scrollX: true,
+				// Control para el desplazamiento medido de arriba abajo
+				//scrollY: 325,
+				// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+				stateSave: false,
+				// Botones que usan clases de bootstrap
+				buttons: [
+					{
+						extend: 'excelHtml5',
+						text: '<i class="far fa-file-excel"></i>',
+						titleAttr: 'Excel',
+						className: 'btn-sm btn-outline-success',
+						attr: {
+							'id': 'table_btn_excel',
+							'name': 'table_btn_excel',
+						},
+					},
+					{
+						extend: 'csvHtml5',
+						text: '<i class="far fa-file-csv"></i>',
+						titleAttr: 'CSV',
+						className: 'btn-sm btn-outline-info',
+						attr: {
+							'id': 'table_btn_csv',
+							'name': 'table_btn_csv',
+						},
+					},
+				],
+				columnDefs: [],
+			});
+		}
+
+		function event_gsc_default_causal_i() {
+			// Capturar el valor del campo de datos
+			const ft_data = document.getElementById("causal_client").value;
+			// Capturar el valor del campo de datos
+			const ft_causal = document.getElementById("causal_base").value;
+			// Control de validacion de datos
+			if (ft_causal != '') { my_url = ft_causal; } else { my_url = ft_data; }
+			// Column Definitions
+			var columnSet = [
+				{
+					title: "Solicitud",
+					id: "lbl_number",
+					data: "lbl_number",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+				{
+					title: "Estado",
+					id: "lbl_state",
+					data: "lbl_state",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+				{
+					title: "Causal",
+					id: "lbl_causal",
+					data: "lbl_causal",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+				{
+					title: "Conteo",
+					id: "lbl_count",
+					data: "lbl_count",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+				{
+					title: "Porcentaje",
+					id: "lbl_percentage",
+					data: "lbl_percentage",
+					type: "text",
+					className: "text-dark",
+					visible: true,
+				},
+			];
+			// Inicializar tabla de datos
+			var myTable = $('#dt_causal_i').dataTable({
+				// Reinicialiar los datos de la tabla
+				destroy: true,
+				// Estructura de las columnas para el DOOM
+				dom: "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center'B>>"
+					+ "<'row mb-3'<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-start'f>"
+						+ "<'col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-end'l>>"
+					+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'tr>>"
+					+ "<'row mb-3'<'col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4'i><'col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8'p>>",
+				// Leer datos de prácticamente cualquier fuente de datos JSON
+				ajax: "dashboard/gsccausali/" + my_url + "/",
+				// Cargar columnas del encabezado
+				columns: columnSet,
+				// Opciones para crear, editar, borrar y sincronizar
+				altEditor: true,
+				// Combinar valores en las demas celdas
+				//autoFill: true,
+				// Control de funciones Manejo inteligente del ancho de columna
+				autoWidth: true,
+				// Movilizar columnas en la tabla
+				colReorder: true,
+				// Creará todos los elementos HTML necesarios por adelantado
+				deferRender: true,
+				// Fijar columnas en la tabla
+				//fixedColumns: true,
+				// Fijar columnas en la parte superior de la tabla
+				fixedHeader: true,
+				// Mostrar entradas de los registros
+				info: true,
+				// Focalizar una celda de la tabla
+				//keys: true,
+				// Cambiar numero de registros por pagina
+				lengthChange: false,
+				// Definir cantidad de registros por paginacion
+				lengthMenu: [[100, 200, 300, 400, 500, -1,], [100, 200, 300, 400, 500, 'Todo',]],
+				// Ordenar columnas en ascendente o descendente
+				order: [[0, "asc",]],
+				// Controlar si las tablas de datos deben usar celda única superior
+				orderCellsTop: true,
+				// Ordenar segun columna los registros
+				ordering: true,
+				// Paginar registros limitadamente
+				paging: true,
+				// Procesando informacion de registros
+				processing: true,
+				// Control para el tamaño de la tabla de datos
+				//responsive: true,
+				// Agrupar las filas de los registros
+				//rowGroup: true,
+				// Control de busqueda de registros
+				searching: false,
+				// Selccionar varias filas de registro
+				select: 'single',
+				// Procesamiento del lado del servidor
+				//serverSide: true,
+				// Permite dibujar grandes conjuntos de datos en la pantalla muy rápidamente
+				//scroller: true,
+				// Control para el desplazamiento medido de arriba abajo
+				//scrollCollapse: true,
+				// Control para el desplazamiento de derecha a izquiera
+				//scrollX: true,
+				// Control para el desplazamiento medido de arriba abajo
+				//scrollY: 325,
+				// Guardar el estado de una tabla (su posición de paginación, estado de pedido, etc.)
+				stateSave: false,
+				// Botones que usan clases de bootstrap
+				buttons: [
+					{
+						extend: 'excelHtml5',
+						text: '<i class="far fa-file-excel"></i>',
+						titleAttr: 'Excel',
+						className: 'btn-sm btn-outline-success',
+						attr: {
+							'id': 'table_btn_excel',
+							'name': 'table_btn_excel',
+						},
+					},
+					{
+						extend: 'csvHtml5',
+						text: '<i class="far fa-file-csv"></i>',
+						titleAttr: 'CSV',
+						className: 'btn-sm btn-outline-info',
+						attr: {
+							'id': 'table_btn_csv',
+							'name': 'table_btn_csv',
+						},
+					},
+				],
+				columnDefs: [],
+			});
+		}
+	</script>
+<?php endif; ?>
+
+</body>
+</html>

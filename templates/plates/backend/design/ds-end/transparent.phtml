@@ -1,0 +1,36 @@
+<?php $var_m_zz_design = new m_zz_designModel; ?>
+<?php $var_application_access = $var_m_zz_design->sql_application_access(); ?>
+<div class="modal fade modal-backdrop-transparent" id="modal-shortcut" tabindex="-1" role="dialog" aria-labelledby="modal-shortcut" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-top modal-transparent" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<ul class="app-list w-auto h-auto p-0 text-left">
+					<li>
+						<a href="dashboard/" class="app-list-item text-white border-0 m-0">
+							<div class="icon-stack">
+								<i class="base base-7 icon-stack-3x opacity-100 color-primary-500 "></i>
+								<i class="base base-7 icon-stack-2x opacity-100 color-primary-300 "></i>
+								<i class="far fa-home icon-stack-1x opacity-100 color-white"></i>
+							</div>
+							<span class="app-list-name">Dashboard</span>
+						</a>
+					</li>
+					<?php if (false != $var_application_access): ?>
+						<?php foreach ($var_application_access as $key): ?>
+							<li>
+								<a href="application/update/<?= $key['lbl_azp_application_id_azp_application']; ?>" class="app-list-item text-white border-0 m-0">
+									<div class="icon-stack">
+										<i class="base base-7 icon-stack-3x opacity-100 color-primary-500 "></i>
+										<i class="base base-7 icon-stack-2x opacity-100 color-primary-300 "></i>
+										<i class="far fa-chalkboard icon-stack-1x opacity-100 color-white"></i>
+									</div>
+									<span class="app-list-name"><?= $key['lbl_azp_application_t_name']; ?></span>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					<?php endif; ?>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+# Archivos del sistema
+*.log
+*.tmp
+
+
+# Archivos de Composer
+
+/systemfiles/
+/vendor/
+composer.lock
+
+# Archivos generados
+*.pyc
+__pycache__/
+
+# Archivos personales o temporales
+*.bak
+*.swp
+
+# Otros
+.env

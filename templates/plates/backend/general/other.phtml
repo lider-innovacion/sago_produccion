@@ -1,0 +1,66 @@
+<?php $this->insert('backend/design/ds-main/file-start'); ?>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<div id="panel-1" class="panel rounded-0">
+				<div class="panel-container show">
+					<div class="panel-content p-0">
+						<div class="panel-tag p-2 bg-white">
+							<ol class="breadcrumb page-breadcrumb">
+								<li class="breadcrumb-item text-danger">
+									<a href="dashboard/" class="text-contrast">
+										<em class="far fa-tachometer-alt-average text-primary"></em>
+										<span class="text-dark">Dashboard</span>
+									</a>
+								</li>
+								<li class="position-absolute pos-top pos-right d-none d-sm-block text-dark">
+									<span class="js-get-date"></span>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<ul class="app-list w-auto h-auto p-0 text-left">
+				<?php if (true == $df_application_access): ?>
+					<?php foreach ($df_application_access as $key => $value): ?>
+						<li>
+							<div class="card">
+								<div class="card-body">
+									<a href="application/update/<?= $value['lbl_azp_application_id_azp_application']; ?>" class="app-list-item text-dark border-0 m-0">
+										<div class="icon-stack mb-1">
+											<i class="base base-7 icon-stack-3x opacity-100 color-primary-500 "></i>
+											<i class="base base-7 icon-stack-2x opacity-100 color-primary-300 "></i>
+											<i class="far fa-chalkboard icon-stack-1x opacity-100 color-white"></i>
+										</div>
+										<span class="app-list-name text-dark"><?= $value['lbl_azp_application_t_name']; ?></span>
+									</a>
+								</div>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</ul>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<?php if (true != $df_application_access): ?>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+					<div id="panel-1" class="panel">
+						<div class="panel-container show">
+							<div class="panel-content p-1">
+								<div class="panel-tag">
+									<p class="text-center text-contrast">
+										<span class="text-dark">
+											No existen modulos habilitados, comuniquese con el administrador de la pagina web.
+										</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+<?php $this->insert('backend/design/ds-main/file-end'); ?>

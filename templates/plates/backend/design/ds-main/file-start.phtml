@@ -1,0 +1,13 @@
+<?php $var_m_zv_setting = new m_zv_settingModel; ?>
+<?php $var_configuration_design_theme = $var_m_zv_setting->sql_configuration_design_theme(); ?>
+<?php if (false != $var_configuration_design_theme): foreach ($var_configuration_design_theme as $key_theme): endforeach; endif; ?>
+<?php $this->insert('backend/design/ds-start/doctype'); ?>
+<body class="mod-bg-1 mod-nav-link header-function-fixed nav-function-fixed footer-function-fixed mod-clean-page-bg <?= $key_theme['lbl_theme']; ?>">
+	<?php $this->insert('backend/design/ds-start/script'); ?>
+	<div class="page-wrapper">
+		<div class="page-inner">
+			<?php $this->insert('backend/design/ds-start/sidebar'); ?>
+			<div class="page-content-wrapper">
+				<?php $this->insert('backend/design/ds-start/header'); ?>
+					<main id="js-page-content" role="main" class="page-content">
+						<?php #$this->insert('backend/design/ds-start/content'); ?>

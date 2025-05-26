@@ -1,0 +1,49 @@
+<?php $var_m_zv_setting = new m_zv_settingModel; ?>
+<?php $var_configuration_design_color = $var_m_zv_setting->sql_configuration_design_color(); ?>
+<?php $var_configuration_design_dimension = $var_m_zv_setting->sql_configuration_design_dimension(); ?>
+<?php if (false != $var_configuration_design_color): foreach ($var_configuration_design_color as $key_color): endforeach; endif; ?>
+<?php if (false != $var_configuration_design_dimension): foreach ($var_configuration_design_dimension as $key_dimension): endforeach; endif; ?>
+
+<!DOCTYPE html>
+<html lang="en" class="<?= $key_dimension['lbl_theme']; ?>">
+<head>
+	<base href="<?= URL; ?>" />
+	<meta charset="utf-8">
+	<title><?= APP; ?></title>
+
+	<meta name="description" content="Export">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="msapplication-tap-highlight" content="no">
+
+	<link id="vendorsbundle" rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/vendors.bundle.css">
+	<link id="appbundle" rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/app.bundle.css">
+	<link id="mytheme" rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/themes/<?= $key_color['lbl_theme']; ?>.css">
+	<link id="myskin" rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/skins/skin-master.css">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="views/templates/smart/dist/img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="views/templates/smart/dist/img/favicon/favicon-32x32.png">
+	<link rel="mask-icon" href="views/templates/smart/dist/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/datagrid/datatables/datatables.bundle.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/notifications/sweetalert2/sweetalert2.bundle.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/formplugins/select2/select2.bundle.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/notifications/toastr/toastr.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/statistics/chartjs/chartjs.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/formplugins/bootstrap-colorpicker/bootstrap-colorpicker.css">
+	<!--<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/formplugins/summernote/summernote.css">-->
+
+	<link rel="stylesheet" media="screen, print" href="views/implement/summernote/summernote-bs4.min.css">
+
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/fa-brands.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/fa-duotone.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/fa-light.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/fa-regular.css">
+	<link rel="stylesheet" media="screen, print" href="views/templates/smart/dist/css/fa-solid.css">
+
+	<link rel="stylesheet" media="screen, print" href="views/backend/css/design.css">
+	
+	<script>const var_url = "<?= URL; ?>"</script>
+	<script>const var_date = "<?= DATE; ?>"</script>
+</head>

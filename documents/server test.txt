@@ -1,0 +1,26 @@
+-------------------------------------------------------------------
+
+http://34.106.168.42/phpmyadmin/
+http://34.106.168.42/migration/
+
+-------------------------------------------------------------------
+
+Maquina Centos
+
+user: root
+pass: Pruebas$$1026
+
+CREATE USER 'root'@'192.168.1.104' IDENTIFIED BY 'Pruebas$$1026';
+GRANT ALL PRIVILEGES ON * . * TO 'root'@'192.168.1.104';
+FLUSH PRIVILEGES;
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-8-es#:~:text=En%20CentOS%208%2C%20la%20versi%C3%B3n,sudo%20dnf%20install%20mysql%2Dserver
+https://www.digitalocean.com/community/tutorials/crear-un-nuevo-usuario-y-otorgarle-permisos-en-mysql-es
+https://www.gpsos.es/2018/07/habilitar-el-acceso-remoto-mysql-centos-7/
+https://www.sololinux.es/instalar-php-7-3-en-centos-8-y-derivados/
+https://josehuaman.com/centos-8-configuracion-de-firewall/
+
+-------------------------------------------------------------------
+
+user: medidasimplementativas
+pass: 7jWXHpZvBqp@bQtld5FV+i

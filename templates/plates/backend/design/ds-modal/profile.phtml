@@ -1,0 +1,48 @@
+<?php $var_m_zz_design = new m_zz_designModel; ?>
+<?php $var_menu_profile = $var_m_zz_design->sql_menu_profile(); ?>
+<?php $var_user_session = $var_m_zz_design->sql_user_session(); ?>
+<?php if (false != $var_user_session): foreach ($var_user_session as $key_session): endforeach; endif; ?>
+
+<div class="modal fade modal-profile" tabindex="-1" role="dialog" aria-hidden="true" 
+data-keyboard="false" data-backdrop="static" aria-labelledby="myCenterModalLabel" style="display: none;">
+	<div class="modal-dialog modal-sm modal-dialog-right">
+		<div class="modal-content">
+			<div class="modal-header bg-trans-gradient d-flex align-items-center">
+				<div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+					<span class="mr-2">
+						<!--<img src="views/templates/smart/dist/img/demo/avatars/avatar-admin.png"-->
+						<img src="views/backend/images/profile-user.png"
+						class="rounded-circle profile-image d-block" alt="<?= $key_session['lbl_azp_user_t_login']; ?>">
+					</span>
+					<div class="info-card-text">
+						<div class="fs-lg text-truncate text-truncate-lg text-white">
+							<?= $key_session['lbl_azp_data_personal_t_names']; ?>
+							<?= $key_session['lbl_azp_data_personal_t_surnames']; ?>
+						</div>
+						<span class="text-truncate text-truncate-md opacity-80">
+							Rol: <?= $key_session['lbl_azp_role_t_name']; ?>
+						</span>
+					</div>
+				</div>
+				<button type="button" class="close text-white position-absolute pos-right p-2 m-1 mr-2" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true"><i class="far fa-times"></i></span>
+				</button>
+			</div>
+			<div class="modal-body p-0">
+				<?php if (false != $var_menu_profile): ?>
+					<?php foreach ($var_menu_profile as $key_profile): ?>
+						<a href="<?= $key_profile['lbl_azp_menu_profile_t_url']; ?>" class="dropdown-item fw-500 pt-3 pb-3">
+							<i class="<?= $key_profile['lbl_azp_icon_code_t_name']; ?>"></i>
+							<span><?= $key_profile['lbl_azp_menu_profile_t_name']; ?></span>
+						</a>
+						<div class="dropdown-divider m-0"></div>
+					<?php endforeach; ?>
+				<?php endif; ?>
+				<a href="#" class="dropdown-item fw-500 pt-3 pb-3" tabindex="0" aria-controls="dt_read" data-toggle="modal" data-target=".modal-div-logout">
+					<i class="ni ni-logout"></i>
+					<span>Cerrar Sesion</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
