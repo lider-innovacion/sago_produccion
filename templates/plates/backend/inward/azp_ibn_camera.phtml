@@ -2881,12 +2881,12 @@
 					<div class="modal-content">
 						<div class="modal-header <?php if ($cm_md_import['lbl_md'] == 3): else: echo $cp_pnl_import['lbl_pnl']; ?> text-white<?php endif; ?>">
 							<h5 class="modal-title text-white">Importar Archivo</h5>
-							<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+							<button type="button" class="close text-white" data-dismiss="modal" " aria-label="Close">
 								<span aria-hidden="true"><i class="far fa-times"></i></span>
 							</button>
 						</div>
 						<div class="modal-body">
-							<div class="row">
+							<div class="row text-center">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
 									<div class="hide" id="form_ajax_import"></div>
 								</div>
@@ -2915,8 +2915,8 @@
 										<label for="field_im_file" class="form-label <?php if ($cm_md_import['lbl_md'] == 3): ?>text-white<?php endif; ?>">
 											<span>Archivo:</span>
 										</label>
-										<div class="input-group input-group-sm">
-											<input type="file" name="field_im_file" id="field_im_file" class="form-control" placeholder="Digita el texto ..." required="">
+										<div class="input-group input-group-sm text-center">
+											<input type="file" name="field_im_file" id="field_im_file" class="mx-auto" style="border: 1px solid lightgrey; border-radius: 3px; margin: 2px; padding:20px;"   placeholder="Digita el texto ..." required="">
 											<div class="invalid-feedback">
 												<span>Selecciona un archivo para el campo.</span>
 											</div>
@@ -2926,19 +2926,24 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<a href="systemfiles/filesimport/investigation/Formato Camaras.csv" target="_blank"
-							class="btn btn-sm waves-effect waves-light <?= $cd_btn_import[d_azp_configuration_button_t_name]; ?>">
+							<a href="systemfiles/filesimport/investigation/ESTRUCTURA_ORIGINAL_IMPORTACION_MODULO_CAMARAS.xlsx"
+							target="_blank"
+							class="btn btn-sm waves-effect waves-light <?= $cd_btn_import[d_azp_configuration_button_t_name]; ?>"
+							style="border: 1px solid #007bff; color: #007bff;">
 								<em class="far fa-download"></em>
-								<span>Formato</span>
+								<span>Descarga Formato</span>
 							</a>
 							<button type="button" id="form_btn_import" onclick="event_import();"
 							class="btn btn-sm waves-effect waves-light <?= $cd_btn_import[d_azp_configuration_button_t_name]; ?>">
 								<em class="far fa-upload"></em>
-								<span>Subir</span>
+								<span >Subir</span>
 							</button>
-							<button type="button" class="btn btn-sm waves-effect waves-light <?= $cd_btn_cancel[d_azp_configuration_button_t_name]; ?>" data-dismiss="modal">
-								<em class="far fa-times-circle"></em>
-								<span>Cerrar</span>
+							<button type="button"
+							class="btn btn-sm waves-effect waves-light <?= $cd_btn_cancel[d_azp_configuration_button_t_name]; ?>"
+							data-dismiss="modal"
+							style="border: 1px solid red; border-radius: 4px; color: red;">
+							<em class="far fa-times-circle"></em>
+							<span>Cerrar</span>
 							</button>
 						</div>
 					</div>
@@ -5168,7 +5173,7 @@
 						},
 					},
 				<?php endif; ?>
-				<?php /*if (false != $var_permits_value_import): ?>
+				<?php if (false != $var_permits_value_import): ?>
 					{
 						text: '<i class="far fa-file-import"></i>',
 						titleAttr: 'Importar',
@@ -5180,7 +5185,7 @@
 							'data-target': '.modal-div-import',
 						},
 					},
-				<?php endif;*/ ?>
+				<?php endif; ?>
 			],
 			columnDefs: [
 				{

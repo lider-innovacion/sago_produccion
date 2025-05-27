@@ -24,6 +24,9 @@ systemfiles/**
 # EXCEPCIÓN: mantener archivos y carpetas en filesformat/
 !systemfiles/filesformat/
 !systemfiles/filesformat/**
+!systemfiles/filesimport/
+!systemfiles/filesimport/**
+
 
 # EXCEPCIÓN: mantener solo carpetas (no archivos) en filesproject/
 !systemfiles/filesproject/
